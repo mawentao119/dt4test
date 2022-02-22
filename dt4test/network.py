@@ -4,10 +4,10 @@ import numpy as np
 
 class Network:
     """
-    Instantiate a multiplication operation.
+    网络服务的公共库.
     Numbers will be multiplied by the given multiplier.
 
-    :param multiplier: The multiplier.
+    :param multiplier: 参数因子.
     :type multiplier: int
     """
 
