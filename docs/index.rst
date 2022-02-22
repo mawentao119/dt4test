@@ -1,16 +1,18 @@
-.. Medium Multiply documentation master file, created by
-   sphinx-quickstart on Tue Dec 15 16:18:19 2020.
+.. dt4test documentation master file, created by
+   sphinx-quickstart on Tue Feb 22 18:39:26 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Medium Multiply's documentation!
-===========================================
+Welcome to dt4test's documentation!
+===================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Python API:
 
-   source/api/multiplication
+   source/api/network
+
+
 
 Indices and tables
 ==================

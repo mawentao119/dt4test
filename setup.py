@@ -35,7 +35,7 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Operating System :: OS Independent"
     ],
-    packages=["medium_multiply"],
+    packages=["dt4test"],
     include_package_data=True,
     install_requires=["numpy"]
 )
