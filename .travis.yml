@@ -1,3 +1,5 @@
+# IMPORTANT: using github account in travis-ci.com : Free Plan(1 month free)
+
 language: python
 python:
   - 3.7
