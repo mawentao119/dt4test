@@ -1,0 +1,3 @@
+include src/dt4test/webui/*/*.html src/dt4test/webui/*/*.js src/dt4test/webui/*/*.css
+include MANIFEST.in
+prune src/dt4test/webui/testdata

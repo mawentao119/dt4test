@@ -1,0 +1,49 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+import time
+import random
+
+import dt4test
+
+
+def show_all_modules():
+    dirs = dt4test.__dir__()
+    modules = []
+    for m in dirs:
+       if not m.startswith('__') and m != 'lib':
+          modules.append(dt4test.__getattribute__(m))
+    try:
+       for m in modules:
+          print("Module {}:{}".format(m.__name__, m.__doc__.splitlines()[1].strip()))
+    except AttributeError:
+       pass
+
+
+def show_usage():
+    print("***********dt4test client***************")
+    print("Log file:{}".format(Logger().get_logfile()))
+    show_all_modules()
+    print("*****************************************")
+
+
+def gen_outputdir():
+    """生成统一的输出目录"""
+    t = time.strftime("%Y%m%d%H%M%S", time.localtime())
+    r = random.randint(100, 999)
+    dir_name = "{}_{}".format(t, r)
+    out_dir = os.path.join(os.environ["PROJECT_DIR"], 'output', dir_name)
+    return out_dir
+
+
+if __name__ == '__main__':
+
+    if len(sys.argv) == 1:
+        show_usage()
+        exit(1)
+
+    if not os.environ.get("PROJECT_DIR", None):
+        print("ERROR : 请设置环境变量 'PROJECT_DIR' 指向你的测试代码目录.")
+        exit(1)

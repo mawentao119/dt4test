@@ -1,9 +1,9 @@
 ==============
-lib.network
+lib.base
 ==============
 
-.. currentmodule:: dt4test.lib.network
+.. currentmodule:: dt4test.lib.base
 
 .. Don't include inherited members to keep the doc short
-.. autoclass:: dt4test.Network
+.. autoclass:: dt4test.Base
     :members:

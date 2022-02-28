@@ -10,7 +10,12 @@ Welcome to dt4test's documentation!
    :maxdepth: 2
    :caption: Python API:
 
+   source/api/logger
+   source/api/base
+   source/api/jsonp
    source/api/network
+   source/api/config_ini
+   source/api/case_runner
 
 
 
