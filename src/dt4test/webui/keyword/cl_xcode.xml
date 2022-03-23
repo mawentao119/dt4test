@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="xcode" type="LIBRARY" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:03Z" specversion="3" source="../../lib/xcode.py" lineno="1">
+<version/>
+<doc>Documentation for library ``xcode``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="Base64 Decode" lineno="19">
+<arguments repr="sr, altchars=None, validate=False">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="sr">
+<name>sr</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="altchars=None">
+<name>altchars</name>
+<default>None</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="validate=False">
+<name>validate</name>
+<default>False</default>
+</arg>
+</arguments>
+<doc>base64解码
+:param str: 待解码的字符串
+:return:</doc>
+<shortdoc>base64解码 :param str: 待解码的字符串 :return:</shortdoc>
+</kw>
+<kw name="Base64 Encode" lineno="10">
+<arguments repr="req, altchars=None">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="req">
+<name>req</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="altchars=None">
+<name>altchars</name>
+<default>None</default>
+</arg>
+</arguments>
+<doc>base64编码
+:param req: protobuf请求
+:return:</doc>
+<shortdoc>base64编码 :param req: protobuf请求 :return:</shortdoc>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

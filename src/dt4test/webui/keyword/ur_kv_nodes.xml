@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="kv_nodes" type="RESOURCE" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:05Z" specversion="3" source="../../../resource/kv_nodes.resource" lineno="1">
+<version/>
+<doc>Documentation for resource file ``kv_nodes``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="Kill One Cache" lineno="111">
+<arguments repr="ip">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="ip">
+<name>ip</name>
+</arg>
+</arguments>
+<doc>按ip地址kill cache</doc>
+<shortdoc>按ip地址kill cache</shortdoc>
+</kw>
+<kw name="Kill One Master" lineno="147">
+<arguments repr="ip">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="ip">
+<name>ip</name>
+</arg>
+</arguments>
+<doc>按ip地址kill master</doc>
+<shortdoc>按ip地址kill master</shortdoc>
+</kw>
+<kw name="Start One Cache" lineno="118">
+<arguments repr="ip">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="ip">
+<name>ip</name>
+</arg>
+</arguments>
+<doc>按ip地址start cache</doc>
+<shortdoc>按ip地址start cache</shortdoc>
+</kw>
+<kw name="Start One Master" lineno="132">
+<arguments repr="ip">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="ip">
+<name>ip</name>
+</arg>
+</arguments>
+<doc>按ip地址start master</doc>
+<shortdoc>按ip地址start master</shortdoc>
+</kw>
+<kw name="取得cache列表" lineno="62">
+<arguments repr="">
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="取得etcd_root" lineno="41">
+<arguments repr="">
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="取得etcd列表" lineno="28">
+<arguments repr="">
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="取得etcd端口" lineno="33">
+<arguments repr="">
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="取得master列表" lineno="53">
+<arguments repr="">
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="取得region" lineno="37">
+<arguments repr="">
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="检查cache进程" lineno="79">
+<arguments repr="ip, count=1">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="ip">
+<name>ip</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="count=1">
+<name>count</name>
+<default>1</default>
+</arg>
+</arguments>
+<doc>检查单个cache进程是否存在</doc>
+<shortdoc>检查单个cache进程是否存在</shortdoc>
+</kw>
+<kw name="检查master进程" lineno="95">
+<arguments repr="ip, count=1">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="ip">
+<name>ip</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="count=1">
+<name>count</name>
+<default>1</default>
+</arg>
+</arguments>
+<doc>检查单个master进程是否存在</doc>
+<shortdoc>检查单个master进程是否存在</shortdoc>
+</kw>
+<kw name="检查所有cache进程" lineno="87">
+<arguments repr="">
+</arguments>
+<doc>检查所有cache进程是否存在</doc>
+<shortdoc>检查所有cache进程是否存在</shortdoc>
+</kw>
+<kw name="检查所有master进程" lineno="103">
+<arguments repr="">
+</arguments>
+<doc>检查所有master进程是否存在</doc>
+<shortdoc>检查所有master进程是否存在</shortdoc>
+</kw>
+<kw name="获取cache列表" lineno="58">
+<arguments repr="">
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="获取etcd列表" lineno="24">
+<arguments repr="">
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="获取master列表" lineno="49">
+<arguments repr="">
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="获取model" lineno="45">
+<arguments repr="">
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="获取主master" lineno="67">
+<arguments repr="">
+</arguments>
+<doc>通过etcd获取主master，默认3个etcd</doc>
+<shortdoc>通过etcd获取主master，默认3个etcd</shortdoc>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

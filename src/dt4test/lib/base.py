@@ -12,7 +12,7 @@ from .helper import Helper
 
 from .logger import Logger
 
-log = Logger().get_logger()
+log = Logger().get_logger(__name__)
 
 class Base(Helper):
     """
@@ -59,16 +59,8 @@ class Base(Helper):
         t = time.strftime("%Y%m%d%H%M%S", time.localtime())
         r = random.randint(100, 999)
         dir_name = "{}_{}".format(t, r)
-        out_dir = os.path.join(os.environ["IDEATE_DIR"], 'output', dir_name)
-        return out_dir
+        return dir_name
 
 
-if __name__ == "__main__":
-    l1 = ['a', 'b', 'c']
-    l2 = ['x', 1, 2, 'y']
-    bs = Base()
-    s1 = bs.list_to_string(l1)
-    s2 = bs.list_to_string(l2, ':')
+BASE = Base()
 
-    assert s1 == "a,b,c"
-    assert s2 == "x:1:2:y"

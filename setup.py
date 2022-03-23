@@ -16,7 +16,7 @@ with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
 
 # Version number typically updated by running `invoke set-version <version>`.
 # Run `invoke --help set-version` or see tasks.py for details.
-VERSION = '0.1.2'
+VERSION = '0.1.3'
 
 CLASSIFIERS = """
 Development Status :: 5 - Production/Stable
@@ -61,11 +61,17 @@ setup(
     python_requires='>=3.6',
     classifiers  = CLASSIFIERS,
     package_dir  = {'': 'src'},
-    package_data = {'dt4test': PACKAGE_DATA},
+    include_package_data = True,
     packages     = find_packages('src'),
-    scripts=['bin/dt'],
+    scripts=['src/dt4test/bin/dt'],
     install_requires=[
         "pytest",
-        "jmespath"
+        "jmespath",
+        "paramiko",
+        "robotframework",
+        "kazoo",
+        "pyyaml"
     ]
 )
+
+# package_data = {'dt4test': PACKAGE_DATA},

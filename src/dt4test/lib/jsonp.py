@@ -29,19 +29,17 @@ class JsonP(Helper):
         """
         if not (exptype == 'unicode' or exptype == 'int' or exptype == 'float'):
             log.error("Not suppor Compare type:" + exptype + ". Use: int,unicode,float")
-            return False
+            raise TypeError("Not suppor Compare type:" + exptype + ". Use: int,unicode,float")
 
         rjs = json.loads(result)
         r_val = jmespath.search(item, rjs)
         log.info("Expect: " + item + ":" + exp + " >> " + str(r_val))
         if r_val is None:
-            log.error("Not Found is result: " + item)
-            return False
+            log.error("Not Found in result: " + item)
+            raise TypeError("Not Found in result: " + item)
 
         exp_val = None
 
-        if exptype == 'unicode':
-            exp_val = unicode(exp)
         if exptype == 'int':
             exp_val = int(exp)
         if exptype == 'float':
@@ -73,3 +71,6 @@ class JsonP(Helper):
         if exptype == 'list':
             return list(r_val)
         return str(r_val)
+
+JSONP = JsonP()
+

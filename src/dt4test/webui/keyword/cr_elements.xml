@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="elements" type="RESOURCE" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:04Z" specversion="3" source="../../resource/elements.resource" lineno="1">
+<version/>
+<doc>Documentation for resource file ``elements``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="从字典弹出" lineno="387">
+<arguments repr="dict, key, default=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict">
+<name>dict</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="key">
+<name>key</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="default=${None}">
+<name>default</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Pop From Dictionary</doc>
+<shortdoc>封装Collections：Pop From Dictionary</shortdoc>
+</kw>
+<kw name="分割字符串" lineno="231">
+<arguments repr="string, separator=${None}, max_split=-1">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="separator=${None}">
+<name>separator</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="max_split=-1">
+<name>max_split</name>
+<default>-1</default>
+</arg>
+</arguments>
+<doc>封装String：Split String</doc>
+<shortdoc>封装String：Split String</shortdoc>
+</kw>
+<kw name="分割字符串到字符" lineno="241">
+<arguments repr="string">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+</arguments>
+<doc>封装String：Split String To Characters</doc>
+<shortdoc>封装String：Split String To Characters</shortdoc>
+</kw>
+<kw name="分割字符串到行" lineno="246">
+<arguments repr="string, start=0, end=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="start=0">
+<name>start</name>
+<default>0</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="end=${None}">
+<name>end</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装String：Split To Lines</doc>
+<shortdoc>封装String：Split To Lines</shortdoc>
+</kw>
+<kw name="列表倒序" lineno="377">
+<arguments repr="list">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+</arguments>
+<doc>封装Collections：Reverse List</doc>
+<shortdoc>封装Collections：Reverse List</shortdoc>
+</kw>
+<kw name="列表删除值" lineno="368">
+<arguments repr="list, *values">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*values">
+<name>values</name>
+</arg>
+</arguments>
+<doc>封装Collections：Remove Values From List</doc>
+<shortdoc>封装Collections：Remove Values From List</shortdoc>
+</kw>
+<kw name="列表删除索引" lineno="363">
+<arguments repr="list, index">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="index">
+<name>index</name>
+</arg>
+</arguments>
+<doc>封装Collections：Remove From List</doc>
+<shortdoc>封装Collections：Remove From List</shortdoc>
+</kw>
+<kw name="列表去重" lineno="392">
+<arguments repr="list">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+</arguments>
+<doc>封装Collections：Remove Duplicates</doc>
+<shortdoc>封装Collections：Remove Duplicates</shortdoc>
+</kw>
+<kw name="列表反转" lineno="373">
+<arguments repr="list">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+</arguments>
+<doc>封装Collections：Reverse List</doc>
+<shortdoc>封装Collections：Reverse List</shortdoc>
+</kw>
+<kw name="列表排序" lineno="397">
+<arguments repr="list">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+</arguments>
+<doc>封装Collections：Sort List</doc>
+<shortdoc>封装Collections：Sort List</shortdoc>
+</kw>
+<kw name="列表插入值" lineno="353">
+<arguments repr="list, index, value">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="index">
+<name>index</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+</arguments>
+<doc>封装Collections：Insert Into List</doc>
+<shortdoc>封装Collections：Insert Into List</shortdoc>
+</kw>
+<kw name="列表添加元素" lineno="256">
+<arguments repr="list, *values">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*values">
+<name>values</name>
+</arg>
+</arguments>
+<doc>封装Collections：Append To List</doc>
+<shortdoc>封装Collections：Append To List</shortdoc>
+</kw>
+<kw name="列表设置值" lineno="358">
+<arguments repr="list, index, value">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="index">
+<name>index</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+</arguments>
+<doc>封装Collections：Set List Value</doc>
+<shortdoc>封装Collections：Set List Value</shortdoc>
+</kw>
+<kw name="创建列表" lineno="81">
+<arguments repr="*items">
+<arg kind="VAR_POSITIONAL" required="false" repr="*items">
+<name>items</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Create List</doc>
+<shortdoc>封装Build-in：Create List</shortdoc>
+</kw>
+<kw name="创建字典" lineno="72">
+<arguments repr="**items">
+<arg kind="VAR_NAMED" required="false" repr="**items">
+<name>items</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Create Dictionary</doc>
+<shortdoc>封装Build-in：Create Dictionary</shortdoc>
+</kw>
+<kw name="删除串" lineno="206">
+<arguments repr="string, *removables">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*removables">
+<name>removables</name>
+</arg>
+</arguments>
+<doc>封装String：Remove String</doc>
+<shortdoc>封装String：Remove String</shortdoc>
+</kw>
+<kw name="删除正则串" lineno="211">
+<arguments repr="string, *patterns">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*patterns">
+<name>patterns</name>
+</arg>
+</arguments>
+<doc>封装String：Remove String Using Regexp</doc>
+<shortdoc>封装String：Remove String Using Regexp</shortdoc>
+</kw>
+<kw name="取右串" lineno="153">
+<arguments repr="string, marker">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="marker">
+<name>marker</name>
+</arg>
+</arguments>
+<doc>封装String：Fetch From Right</doc>
+<shortdoc>封装String：Fetch From Right</shortdoc>
+</kw>
+<kw name="取子串" lineno="201">
+<arguments repr="string, start, end=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="start">
+<name>start</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="end=${None}">
+<name>end</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装String：Get Substring</doc>
+<shortdoc>封装String：Get Substring</shortdoc>
+</kw>
+<kw name="取左串" lineno="148">
+<arguments repr="string, marker">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="marker">
+<name>marker</name>
+</arg>
+</arguments>
+<doc>封装String：Fetch From Left</doc>
+<shortdoc>封装String：Fetch From Left</shortdoc>
+</kw>
+<kw name="取得列表值" lineno="316">
+<arguments repr="list, index">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="index">
+<name>index</name>
+</arg>
+</arguments>
+<doc>封装Collections：Get From List</doc>
+<shortdoc>封装Collections：Get From List</shortdoc>
+</kw>
+<kw name="取得列表索引" lineno="325">
+<arguments repr="list, value, start=0, end=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="start=0">
+<name>start</name>
+<default>0</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="end=${None}">
+<name>end</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Get Index From List</doc>
+<shortdoc>封装Collections：Get Index From List</shortdoc>
+</kw>
+<kw name="取得包含特定串的行" lineno="177">
+<arguments repr="string, pattern, case_insensitive=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="case_insensitive=${false}">
+<name>case_insensitive</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装String：Get Lines Containing String</doc>
+<shortdoc>封装String：Get Lines Containing String</shortdoc>
+</kw>
+<kw name="取得包含特定字符串的行" lineno="173">
+<arguments repr="string, pattern, case_insensitive=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="case_insensitive=${false}">
+<name>case_insensitive</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装String：Get Lines Containing String</doc>
+<shortdoc>封装String：Get Lines Containing String</shortdoc>
+</kw>
+<kw name="取得匹配列表" lineno="343">
+<arguments repr="list, pattern, case_insensitive=${false}, whitespace_insensitive=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="case_insensitive=${false}">
+<name>case_insensitive</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="whitespace_insensitive=${false}">
+<name>whitespace_insensitive</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Get Matches</doc>
+<shortdoc>封装Collections：Get Matches</shortdoc>
+</kw>
+<kw name="取得匹配数量" lineno="334">
+<arguments repr="list, pattern, case_insensitive=${false}, whitespace_insensitive=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="case_insensitive=${false}">
+<name>case_insensitive</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="whitespace_insensitive=${false}">
+<name>whitespace_insensitive</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Get Match Count</doc>
+<shortdoc>封装Collections：Get Match Count</shortdoc>
+</kw>
+<kw name="取得字串" lineno="197">
+<arguments repr="string, start, end=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="start">
+<name>start</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="end=${None}">
+<name>end</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装String：Get Substring</doc>
+<shortdoc>封装String：Get Substring</shortdoc>
+</kw>
+<kw name="取得字典主键列表" lineno="281">
+<arguments repr="dictionary, sort_keys=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dictionary">
+<name>dictionary</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="sort_keys=${false}">
+<name>sort_keys</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Get Dictionary Keys</doc>
+<shortdoc>封装Collections：Get Dictionary Keys</shortdoc>
+</kw>
+<kw name="取得字典值" lineno="303">
+<arguments repr="dictionary, key">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dictionary">
+<name>dictionary</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="key">
+<name>key</name>
+</arg>
+</arguments>
+<doc>封装Collections：Get From Dictionary</doc>
+<shortdoc>封装Collections：Get From Dictionary</shortdoc>
+</kw>
+<kw name="取得字典值列表" lineno="294">
+<arguments repr="dictionary, sort_keys=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dictionary">
+<name>dictionary</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="sort_keys=${false}">
+<name>sort_keys</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Get Dictionary Values</doc>
+<shortdoc>封装Collections：Get Dictionary Values</shortdoc>
+</kw>
+<kw name="取得时间" lineno="108">
+<arguments repr="format=timestamp, time_=NOW">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="format=timestamp">
+<name>format</name>
+<default>timestamp</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="time_=NOW">
+<name>time_</name>
+<default>NOW</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Get Time</doc>
+<shortdoc>封装Build-in：Get Time</shortdoc>
+</kw>
+<kw name="取得模式行" lineno="182">
+<arguments repr="string, pattern, case_insensitive=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="case_insensitive=${false}">
+<name>case_insensitive</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装String：Get Lines Matching Pattern</doc>
+<shortdoc>封装String：Get Lines Matching Pattern</shortdoc>
+</kw>
+<kw name="取得正则行" lineno="187">
+<arguments repr="string, pattern, partial_match=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="partial_match=${false}">
+<name>partial_match</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装String：Get Lines Matching Regexp</doc>
+<shortdoc>封装String：Get Lines Matching Regexp</shortdoc>
+</kw>
+<kw name="取得行" lineno="163">
+<arguments repr="string, line_number">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="line_number">
+<name>line_number</name>
+</arg>
+</arguments>
+<doc>封装String：Get Line</doc>
+<shortdoc>封装String：Get Line</shortdoc>
+</kw>
+<kw name="取得长度" lineno="99">
+<arguments repr="item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Get Length</doc>
+<shortdoc>封装Build-in：Get Length</shortdoc>
+</kw>
+<kw name="右侧分割字符串" lineno="236">
+<arguments repr="string, separator=${None}, max_split=-1">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="separator=${None}">
+<name>separator</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="max_split=-1">
+<name>max_split</name>
+<default>-1</default>
+</arg>
+</arguments>
+<doc>封装String：Split String From Right</doc>
+<shortdoc>封装String：Split String From Right</shortdoc>
+</kw>
+<kw name="合并列表" lineno="261">
+<arguments repr="*lists">
+<arg kind="VAR_POSITIONAL" required="false" repr="*lists">
+<name>lists</name>
+</arg>
+</arguments>
+<doc>封装Collections：Combine Lists</doc>
+<shortdoc>封装Collections：Combine Lists</shortdoc>
+</kw>
+<kw name="备注" lineno="19">
+<arguments repr="*items">
+<arg kind="VAR_POSITIONAL" required="false" repr="*items">
+<name>items</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Comment</doc>
+<shortdoc>封装Build-in：Comment</shortdoc>
+</kw>
+<kw name="字典保留主键" lineno="382">
+<arguments repr="dict, *keys">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict">
+<name>dict</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*keys">
+<name>keys</name>
+</arg>
+</arguments>
+<doc>封装Collections：Keep In Dictionary</doc>
+<shortdoc>封装Collections：Keep In Dictionary</shortdoc>
+</kw>
+<kw name="字典删除主键" lineno="402">
+<arguments repr="dict, *keys">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict">
+<name>dict</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*keys">
+<name>keys</name>
+</arg>
+</arguments>
+<doc>封装Collections：Remove From Dictionary</doc>
+<shortdoc>封装Collections：Remove From Dictionary</shortdoc>
+</kw>
+<kw name="字典取得值" lineno="307">
+<arguments repr="dictionary, key">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dictionary">
+<name>dictionary</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="key">
+<name>key</name>
+</arg>
+</arguments>
+<doc>封装Collections：Get From Dictionary</doc>
+<shortdoc>封装Collections：Get From Dictionary</shortdoc>
+</kw>
+<kw name="字典设置值" lineno="407">
+<arguments repr="dict, *key_value_pairs, **items">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict">
+<name>dict</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*key_value_pairs">
+<name>key_value_pairs</name>
+</arg>
+<arg kind="VAR_NAMED" required="false" repr="**items">
+<name>items</name>
+</arg>
+</arguments>
+<doc>封装Collections：Set To Dictionary</doc>
+<shortdoc>封装Collections：Set To Dictionary</shortdoc>
+</kw>
+<kw name="应该包含X次" lineno="118">
+<arguments repr="container, item, msg=${None}, ignore_case=${false}, strip_spaces=${false}, collapse_spaces=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="container">
+<name>container</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="strip_spaces=${false}">
+<name>strip_spaces</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="collapse_spaces=${false}">
+<name>collapse_spaces</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Contain X Times</doc>
+<shortdoc>封装Build-in：Should Contain X Times</shortdoc>
+</kw>
+<kw name="抽取正则匹配" lineno="192">
+<arguments repr="string, pattern, groups=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="groups=${None}">
+<name>groups</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装String：Get Regexp Matches</doc>
+<shortdoc>封装String：Get Regexp Matches</shortdoc>
+</kw>
+<kw name="拷贝列表" lineno="271">
+<arguments repr="list, deepcopy=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="deepcopy=${false}">
+<name>deepcopy</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Copy List</doc>
+<shortdoc>封装Collections：Copy List</shortdoc>
+</kw>
+<kw name="拷贝字典" lineno="266">
+<arguments repr="dictionary, deepcopy=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dictionary">
+<name>dictionary</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="deepcopy=${false}">
+<name>deepcopy</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Copy Dictionary</doc>
+<shortdoc>封装Collections：Copy Dictionary</shortdoc>
+</kw>
+<kw name="掐头去尾" lineno="251">
+<arguments repr="string, mode=both, characters=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="mode=both">
+<name>mode</name>
+<default>both</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="characters=${None}">
+<name>characters</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装String：Strip String</doc>
+<shortdoc>封装String：Strip String</shortdoc>
+</kw>
+<kw name="替换串" lineno="220">
+<arguments repr="string, search_for, replace_with, count=-1">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="search_for">
+<name>search_for</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="replace_with">
+<name>replace_with</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="count=-1">
+<name>count</name>
+<default>-1</default>
+</arg>
+</arguments>
+<doc>封装String：Replace String</doc>
+<shortdoc>封装String：Replace String</shortdoc>
+</kw>
+<kw name="正则删除串" lineno="215">
+<arguments repr="string, *patterns">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*patterns">
+<name>patterns</name>
+</arg>
+</arguments>
+<doc>封装String：Remove String Using Regexp</doc>
+<shortdoc>封装String：Remove String Using Regexp</shortdoc>
+</kw>
+<kw name="正则替换串" lineno="225">
+<arguments repr="string, pattern, replace_with, count=-1">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="replace_with">
+<name>replace_with</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="count=-1">
+<name>count</name>
+<default>-1</default>
+</arg>
+</arguments>
+<doc>封装String：Replace String Using Regexp</doc>
+<shortdoc>封装String：Replace String Using Regexp</shortdoc>
+</kw>
+<kw name="注释" lineno="15">
+<arguments repr="*items">
+<arg kind="VAR_POSITIONAL" required="false" repr="*items">
+<name>items</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Comment</doc>
+<shortdoc>封装Build-in：Comment</shortdoc>
+</kw>
+<kw name="生成列表" lineno="85">
+<arguments repr="*items">
+<arg kind="VAR_POSITIONAL" required="false" repr="*items">
+<name>items</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Create List</doc>
+<shortdoc>封装Build-in：Create List</shortdoc>
+</kw>
+<kw name="生成字典" lineno="76">
+<arguments repr="**items">
+<arg kind="VAR_NAMED" required="false" repr="**items">
+<name>items</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Create Dictionary</doc>
+<shortdoc>封装Build-in：Create Dictionary</shortdoc>
+</kw>
+<kw name="生成随机串" lineno="158">
+<arguments repr="length, chars=[LETTERS]">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="length">
+<name>length</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="chars=[LETTERS]">
+<name>chars</name>
+<default>[LETTERS]</default>
+</arg>
+</arguments>
+<doc>封装String：Generate Random String</doc>
+<shortdoc>封装String：Generate Random String</shortdoc>
+</kw>
+<kw name="等待操作执行成功" lineno="123">
+<arguments repr="retry, retry_interval, name, args=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="retry">
+<name>retry</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="retry_interval">
+<name>retry_interval</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="name">
+<name>name</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="args=${None}">
+<name>args</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Wait Until Keyword Succeeds</doc>
+<shortdoc>封装Build-in：Wait Until Keyword Succeeds</shortdoc>
+</kw>
+<kw name="统计个数" lineno="94">
+<arguments repr="container, item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="container">
+<name>container</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Get Count</doc>
+<shortdoc>封装Build-in：Get Count</shortdoc>
+</kw>
+<kw name="统计列表中单个元素" lineno="276">
+<arguments repr="list, value, start=0, end=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="start=0">
+<name>start</name>
+<default>0</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="end=${None}">
+<name>end</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Count Values In List</doc>
+<shortdoc>封装Collections：Count Values In List</shortdoc>
+</kw>
+<kw name="统计行数" lineno="168">
+<arguments repr="string">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="string">
+<name>string</name>
+</arg>
+</arguments>
+<doc>封装String：Get Line Count</doc>
+<shortdoc>封装String：Get Line Count</shortdoc>
+</kw>
+<kw name="编码字符串到字节" lineno="143">
+<arguments repr="bytes, encoding, errors=strict">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="bytes">
+<name>bytes</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="encoding">
+<name>encoding</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="errors=strict">
+<name>errors</name>
+<default>strict</default>
+</arg>
+</arguments>
+<doc>封装String：Encode String To Bytes</doc>
+<shortdoc>封装String：Encode String To Bytes</shortdoc>
+</kw>
+<kw name="获取列表值" lineno="312">
+<arguments repr="list, index">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="index">
+<name>index</name>
+</arg>
+</arguments>
+<doc>封装Collections：Get From List</doc>
+<shortdoc>封装Collections：Get From List</shortdoc>
+</kw>
+<kw name="获取列表分片" lineno="348">
+<arguments repr="list, start=0, end=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="start=0">
+<name>start</name>
+<default>0</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="end=${None}">
+<name>end</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Get Slice From List</doc>
+<shortdoc>封装Collections：Get Slice From List</shortdoc>
+</kw>
+<kw name="获取列表索引" lineno="321">
+<arguments repr="list, value, start=0, end=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="start=0">
+<name>start</name>
+<default>0</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="end=${None}">
+<name>end</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Get Index From List</doc>
+<shortdoc>封装Collections：Get Index From List</shortdoc>
+</kw>
+<kw name="获取匹配列表" lineno="339">
+<arguments repr="list, pattern, case_insensitive=${false}, whitespace_insensitive=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="case_insensitive=${false}">
+<name>case_insensitive</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="whitespace_insensitive=${false}">
+<name>whitespace_insensitive</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Get Matches</doc>
+<shortdoc>封装Collections：Get Matches</shortdoc>
+</kw>
+<kw name="获取匹配数量" lineno="330">
+<arguments repr="list, pattern, case_insensitive=${false}, whitespace_insensitive=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="case_insensitive=${false}">
+<name>case_insensitive</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="whitespace_insensitive=${false}">
+<name>whitespace_insensitive</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Get Match Count</doc>
+<shortdoc>封装Collections：Get Match Count</shortdoc>
+</kw>
+<kw name="获取字典主键列表" lineno="285">
+<arguments repr="dictionary, sort_keys=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dictionary">
+<name>dictionary</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="sort_keys=${false}">
+<name>sort_keys</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Get Dictionary Keys</doc>
+<shortdoc>封装Collections：Get Dictionary Keys</shortdoc>
+</kw>
+<kw name="获取字典值" lineno="299">
+<arguments repr="dictionary, key">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dictionary">
+<name>dictionary</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="key">
+<name>key</name>
+</arg>
+</arguments>
+<doc>封装Collections：Get From Dictionary</doc>
+<shortdoc>封装Collections：Get From Dictionary</shortdoc>
+</kw>
+<kw name="获取字典值列表" lineno="290">
+<arguments repr="dictionary, sort_keys=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dictionary">
+<name>dictionary</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="sort_keys=${false}">
+<name>sort_keys</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Get Dictionary Values</doc>
+<shortdoc>封装Collections：Get Dictionary Values</shortdoc>
+</kw>
+<kw name="解码字节到字符串" lineno="138">
+<arguments repr="bytes, encoding, errors=strict">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="bytes">
+<name>bytes</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="encoding">
+<name>encoding</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="errors=strict">
+<name>errors</name>
+<default>strict</default>
+</arg>
+</arguments>
+<doc>封装String：Decode Bytes To String</doc>
+<shortdoc>封装String：Decode Bytes To String</shortdoc>
+</kw>
+<kw name="计数" lineno="90">
+<arguments repr="container, item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="container">
+<name>container</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Get Count</doc>
+<shortdoc>封装Build-in：Get Count</shortdoc>
+</kw>
+<kw name="计算长度" lineno="103">
+<arguments repr="item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Get Length</doc>
+<shortdoc>封装Build-in：Get Length</shortdoc>
+</kw>
+<kw name="设置变量" lineno="412">
+<arguments repr="*values">
+<arg kind="VAR_POSITIONAL" required="false" repr="*values">
+<name>values</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Set Variable</doc>
+<shortdoc>封装Build-in：Set Variable</shortdoc>
+</kw>
+<kw name="转成二进制" lineno="24">
+<arguments repr="item, base=${None}, prefix=${None}, length=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="base=${None}">
+<name>base</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="prefix=${None}">
+<name>prefix</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="length=${None}">
+<name>length</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Convert To Binary</doc>
+<shortdoc>封装Build-in：Convert To Binary</shortdoc>
+</kw>
+<kw name="转成十六进制" lineno="34">
+<arguments repr="item, base=${None}, prefix=${None}, length=${None}, lowercase=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="base=${None}">
+<name>base</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="prefix=${None}">
+<name>prefix</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="length=${None}">
+<name>length</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="lowercase=${false}">
+<name>lowercase</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Convert To Hex</doc>
+<shortdoc>封装Build-in：Convert To Hex</shortdoc>
+</kw>
+<kw name="转成十进制" lineno="29">
+<arguments repr="item, base=${None}, prefix=${None}, length=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="base=${None}">
+<name>base</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="prefix=${None}">
+<name>prefix</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="length=${None}">
+<name>length</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Convert To Octal</doc>
+<shortdoc>封装Build-in：Convert To Octal</shortdoc>
+</kw>
+<kw name="转成字符串" lineno="67">
+<arguments repr="item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Convert To String</doc>
+<shortdoc>封装Build-in：Convert To String</shortdoc>
+</kw>
+<kw name="转成字节" lineno="48">
+<arguments repr="input, input_tyep=text">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="input">
+<name>input</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="input_tyep=text">
+<name>input_tyep</name>
+<default>text</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Convert To Bytes</doc>
+<shortdoc>封装Build-in：Convert To Bytes</shortdoc>
+</kw>
+<kw name="转成布尔" lineno="43">
+<arguments repr="item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Convert To Boolean</doc>
+<shortdoc>封装Build-in：Convert To Boolean</shortdoc>
+</kw>
+<kw name="转成布尔值" lineno="39">
+<arguments repr="item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Convert To Boolean</doc>
+<shortdoc>封装Build-in：Convert To Boolean</shortdoc>
+</kw>
+<kw name="转成数字" lineno="62">
+<arguments repr="item, precision=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="precision=${None}">
+<name>precision</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Convert To Number</doc>
+<shortdoc>封装Build-in：Convert To Number</shortdoc>
+</kw>
+<kw name="转成整型" lineno="57">
+<arguments repr="item, base=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="base=${None}">
+<name>base</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Convert To Integer</doc>
+<shortdoc>封装Build-in：Convert To Integer</shortdoc>
+</kw>
+<kw name="转成整数" lineno="53">
+<arguments repr="item, base=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="base=${None}">
+<name>base</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Convert To Integer</doc>
+<shortdoc>封装Build-in：Convert To Integer</shortdoc>
+</kw>
+<kw name="转换成大写" lineno="133">
+<arguments repr="item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc>封装 String：Convert To Upper Case</doc>
+<shortdoc>封装 String：Convert To Upper Case</shortdoc>
+</kw>
+<kw name="转换成小写" lineno="128">
+<arguments repr="item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc>封装 String：Convert To Lower Case</doc>
+<shortdoc>封装 String：Convert To Lower Case</shortdoc>
+</kw>
+<kw name="连接" lineno="10">
+<arguments repr="*items">
+<arg kind="VAR_POSITIONAL" required="false" repr="*items">
+<name>items</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Catenate</doc>
+<shortdoc>封装Build-in：Catenate</shortdoc>
+</kw>
+<kw name="重复执行操作" lineno="113">
+<arguments repr="repeat, name, args=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="repeat">
+<name>repeat</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="name">
+<name>name</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="args=${None}">
+<name>args</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Repeat Keyword</doc>
+<shortdoc>封装Build-in：Repeat Keyword</shortdoc>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

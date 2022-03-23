@@ -1,0 +1,4 @@
+{ "class": "GraphLinksModel",
+  "modelData": {"templateName":"template2", "version":1, "nodes":4, "links":3, "actions":3, "variables":5, "variable":[], "init_actions":"环境初始化"},
+  "nodeDataArray": [],
+  "linkDataArray": []}

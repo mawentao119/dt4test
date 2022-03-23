@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="monitor" type="RESOURCE" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:04Z" specversion="3" source="../../resource/monitor.resource" lineno="1">
+<version/>
+<doc>Common Add Monitor to Scheduler</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="Add Monitor To Scheduler" lineno="16">
+<arguments repr="conffile">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="conffile">
+<name>conffile</name>
+</arg>
+</arguments>
+<doc>conffile: {OUTPUTDIR}/monitor/ip@item.conf
+ip@item.conf:ip|ssh_port|user|passwd|script_command|interval</doc>
+<shortdoc>conffile: {OUTPUTDIR}/monitor/ip@item.conf ip@item.conf:ip|ssh_port|user|passwd|script_command|interval</shortdoc>
+</kw>
+<kw name="Get Script command" lineno="29">
+<arguments repr="item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="Get Script file" lineno="39">
+<arguments repr="item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="Get Script path" lineno="49">
+<arguments repr="item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

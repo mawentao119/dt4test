@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="ansible_run" type="LIBRARY" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:03Z" specversion="3" source="../../lib/ansible_run.py" lineno="1">
+<version/>
+<doc>Documentation for library ``ansible_run``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="Dump Artifact" source="../../../../py3env/lib/python3.8/site-packages/ansible_runner/utils/__init__.py" lineno="88">
+<arguments repr="obj, path, filename=None">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="obj">
+<name>obj</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="filename=None">
+<name>filename</name>
+<default>None</default>
+</arg>
+</arguments>
+<doc>Write the artifact to disk at the specified path
+
+Args:
+    obj (string): The string object to be dumped to disk in the specified
+        path.  The artifact filename will be automatically created
+
+    path (string): The full path to the artifacts data directory.
+
+    filename (string, optional): The name of file to write the artifact to.
+        If the filename is not provided, then one will be generated.
+
+Returns:
+    string: The full path filename for the artifact that was generated</doc>
+<shortdoc>Write the artifact to disk at the specified path</shortdoc>
+</kw>
+<kw name="Get Inventory Json" lineno="23">
+<arguments repr="inventory=/Users/mawentao/PycharmProjects/ideate/ansible/inventory/hosts">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="inventory=/Users/mawentao/PycharmProjects/ideate/ansible/inventory/hosts">
+<name>inventory</name>
+<default>/Users/mawentao/PycharmProjects/ideate/ansible/inventory/hosts</default>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="Run Play" lineno="29">
+<arguments repr="desc=, **kwargs">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="desc=">
+<name>desc</name>
+<default/>
+</arg>
+<arg kind="VAR_NAMED" required="false" repr="**kwargs">
+<name>kwargs</name>
+</arg>
+</arguments>
+<doc>:return res.rc , result_dir</doc>
+<shortdoc>:return res.rc , result_dir</shortdoc>
+</kw>
+<kw name="Safe Load" source="../../../../py3env/lib/python3.8/site-packages/yaml/__init__.py" lineno="154">
+<arguments repr="stream">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="stream">
+<name>stream</name>
+</arg>
+</arguments>
+<doc>Parse the first YAML document in a stream
+and produce the corresponding Python object.
+
+Resolve only basic YAML tags. This is known
+to be safe for untrusted input.</doc>
+<shortdoc>Parse the first YAML document in a stream and produce the corresponding Python object.</shortdoc>
+</kw>
+<kw name="Uuid 4" source="../../../../../../../Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/uuid.py" lineno="778">
+<arguments repr="">
+</arguments>
+<doc>Generate a random UUID.</doc>
+<shortdoc>Generate a random UUID.</shortdoc>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

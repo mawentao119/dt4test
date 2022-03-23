@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="monitor" type="LIBRARY" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:03Z" specversion="3" source="../../lib/monitor.py" lineno="1">
+<version/>
+<doc>Documentation for library ``monitor``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="Add Monitor" lineno="9">
+<arguments repr="">
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

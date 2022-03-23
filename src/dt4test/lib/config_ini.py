@@ -10,37 +10,49 @@ import configparser
 from .helper import Helper
 from .logger import Logger
 
-log = Logger().get_logger()
+log = Logger().get_logger(__name__)
 
 
 class ConfigIni(Helper):
     """
     INI 格式的配置文件的处理，get ，set ，if exists
     """
-    def set_item(self, filename, section, item, value):
+    def set_item(self, filename, section, item, value, add_new=False):
         """
         | 设置配置文件中的配置项
-        | filename: 配置文件名
-        | section: ini 文件中的 section
-        | item: section 下面的 配置项
-        | value: 配置项的值
-        |:return: 'ok' OR 'err'
+        | :param filename: 配置文件名
+        | :param section: 配置段
+        | :param item: 配置项
+        | :param value: 配置值
+        | :return: value OR ""
         """
         if not os.path.exists(filename):
             log.error("找不到配置文件: {}".format(filename))
-            return 'err'
+            raise FileNotFoundError("{}".format(filename))
 
         config = configparser.ConfigParser()
         config.read_file(open(filename))
 
         log.info("修改配置:file:{},section:{},item:{},value:{}".format(filename, section, item, value))
-        if not config.has_section(section):
+
+        if not config.has_section(section) and not add_new:
             log.info("没有此Section: {}".format(section))
-            return 'err'
-        config[section][item] = value
+            raise ValueError("没有此Section: {}".format(section))
+
+        if not config.has_section(section) and add_new:
+            log.info("增加Section: {}".format(section))
+            config.add_section(section)
+
+        if not config.has_option(section, item) and not add_new:
+            log.info("section:{} 没有此item: {}".format(section, item))
+            raise ValueError("section:{} 没有此item: {}".format(section, item))
+
+        if not config.has_option(section, item) and add_new:
+            config[section][item] = value
+
         with open(filename, 'w') as configfile:
             config.write(configfile)
-        return 'ok'
+        return value
 
 
     def get_item(self, filename, section, item):
@@ -49,11 +61,11 @@ class ConfigIni(Helper):
         | filename: 配置文件名
         | section: INI 配置文件的section
         | item: Section下面的 配置项
-        | :return: value OR '*err*'
+        | :return: value OR ''
         """
         if not os.path.exists(filename):
             log.error("找不到配置文件: {}".format(filename))
-            return '*err*'
+            raise FileNotFoundError("{}".format(filename))
 
         config = configparser.ConfigParser()
         config.read_file(open(filename))
@@ -62,9 +74,9 @@ class ConfigIni(Helper):
         return config.get(section, item, fallback='')
 
 
-    def item_exists(self, filename, section, item):
+    def item_should_exists(self, filename, section, item):
         """
-        | 判断配置项是否存在
+        | 配置项应该存在
         | filename: 配置文件名
         | section: INI配置文件中的Section
         | item: 配置项
@@ -72,11 +84,21 @@ class ConfigIni(Helper):
         """
         if not os.path.exists(filename):
             log.error("找不到配置文件: {}".format(filename))
-            return '*err*'
+            raise FileNotFoundError("{}".format(filename))
 
         config = configparser.ConfigParser()
         config.read_file(open(filename))
         return config.has_option(section, item)
+
+    def item_should_not_exists(self, filename, section, item):
+        """
+        | 判断配置项不应该存在
+        | filename: 配置文件名
+        | section: INI配置文件中的Section
+        | item: 配置项
+        | :return: True OR False
+        """
+        return not self.item_should_exists(filename, section, item)
 
 
     def get_variables(self, filename):
@@ -94,3 +116,26 @@ class ConfigIni(Helper):
                 var = "%s.%s" % (section, key)
                 variables[var] = value
         return variables
+
+    def has_section(self, conf_file, section):
+        config = configparser.ConfigParser()
+        config.read_file(open(conf_file))
+        return config.has_section(section)
+
+    def get_sections(self, conf_file):
+        """
+        返回 ``sections`` 列表
+        """
+        config = configparser.ConfigParser()
+        config.read_file(open(conf_file))
+        return config.sections()
+
+    def add_section(self, conf_file, section):
+        config = configparser.ConfigParser()
+        config.read_file(open(conf_file))
+        return config.add_section(section)
+
+    def add_item(self, conf_file, section, item, value):
+        self.set_item(conf_file, section, item, value, add_new=True)
+
+CONFIGINI = ConfigIni()

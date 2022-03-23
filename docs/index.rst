@@ -15,7 +15,13 @@ Welcome to dt4test's documentation!
    source/api/jsonp
    source/api/network
    source/api/config_ini
+   source/api/element
+   source/api/process
+   source/api/expectation
+   source/api/operating_system
    source/api/case_runner
+   source/api/zookeeper
+   source/api/monitor
 
 
 

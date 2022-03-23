@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="base" type="LIBRARY" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:03Z" specversion="3" source="../../lib/base.py" lineno="1">
+<version/>
+<doc>Documentation for library ``base``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="Get A Random Item" lineno="23">
+<arguments repr="alist">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="alist">
+<name>alist</name>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="Get Uuid" lineno="20">
+<arguments repr="">
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="List To String" lineno="10">
+<arguments repr="alist, split_char=,">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="alist">
+<name>alist</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="split_char=,">
+<name>split_char</name>
+<default>,</default>
+</arg>
+</arguments>
+<doc>将list转化成一个字符串，以split_char分割
+:param alist: list
+:param split_char: split_char
+:return: String</doc>
+<shortdoc>将list转化成一个字符串，以split_char分割 :param alist: list :param split_char: split_char :return: String</shortdoc>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

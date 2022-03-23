@@ -1,3 +1,35 @@
-include src/dt4test/webui/*/*.html src/dt4test/webui/*/*.js src/dt4test/webui/*/*.css
+include src/dt4test/webui/keyword/*.xml
+include src/dt4test/webui/docs/img/*.png
+include src/dt4test/webui/docs/*.md
+include src/dt4test/webui/auto/www/static/css/*.css
+include src/dt4test/webui/auto/www/static/img/*.png
+include src/dt4test/webui/auto/www/static/js/*.js
+include src/dt4test/webui/auto/www/templates/*.html
+include src/dt4test/webui/auto/www/templates/case_template/*.*
+
+include src/dt4test/webui/auto/www/static/lib/*.js
+
+include src/dt4test/webui/auto/www/static/lib/codemirror/*
+include src/dt4test/webui/auto/www/static/lib/codemirror/*/*.js
+include src/dt4test/webui/auto/www/static/lib/codemirror/*/*.css
+include src/dt4test/webui/auto/www/static/lib/codemirror/*/*.html
+
+include src/dt4test/webui/auto/www/static/lib/easyui/*
+include src/dt4test/webui/auto/www/static/lib/easyui/*/*.js
+include src/dt4test/webui/auto/www/static/lib/easyui/*/*.css
+include src/dt4test/webui/auto/www/static/lib/easyui/themes/bootstrap/*.css
+include src/dt4test/webui/auto/www/static/lib/easyui/themes/bootstrap/images/*.png
+include src/dt4test/webui/auto/www/static/lib/easyui/themes/bootstrap/images/*.gif
+include src/dt4test/webui/auto/www/static/lib/easyui/*/*.html
+
+include src/dt4test/webui/auto/www/static/lib/gojs/*.js
+
+include src/dt4test/monitor/*.ini
+include src/dt4test/monitor/*.sh
+include src/dt4test/monitor/*.py
+
+include src/dt4test/bin/*.sh
+include src/dt4test/bin/*.py
+
 include MANIFEST.in
 prune src/dt4test/webui/testdata

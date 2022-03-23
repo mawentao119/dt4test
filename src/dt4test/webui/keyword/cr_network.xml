@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="network" type="RESOURCE" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:04Z" specversion="3" source="../../resource/network.resource" lineno="1">
+<version/>
+<doc>Documentation for resource file ``network``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="Http Get" lineno="88">
+<arguments repr="host, path, payload, headers=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="host">
+<name>host</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="payload">
+<name>payload</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="headers=${None}">
+<name>headers</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="Http Post" lineno="81">
+<arguments repr="host, path, payload, headers=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="host">
+<name>host</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="payload">
+<name>payload</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="headers=${None}">
+<name>headers</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="上传文件" lineno="76">
+<arguments repr="ip, port, user, passwd, src, des">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="ip">
+<name>ip</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="port">
+<name>port</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="user">
+<name>user</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="passwd">
+<name>passwd</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="src">
+<name>src</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="des">
+<name>des</name>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="创建信任关系" lineno="68">
+<arguments repr="username, sudo=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="username">
+<name>username</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="sudo=${None}">
+<name>sudo</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>${common_bin}/sshsetup.sh
+建立本机到其他机器的信任关系</doc>
+<shortdoc>${common_bin}/sshsetup.sh 建立本机到其他机器的信任关系</shortdoc>
+</kw>
+<kw name="创建用户" lineno="50">
+<arguments repr="">
+</arguments>
+<doc>以root用户创建用户
+ip及root密码 ../conf/ips.txt
+用户名列表 ../conf/users.txt</doc>
+<shortdoc>以root用户创建用户 ip及root密码 ../conf/ips.txt 用户名列表 ../conf/users.txt</shortdoc>
+</kw>
+<kw name="删除用户" lineno="61">
+<arguments repr="username, sudo=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="username">
+<name>username</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="sudo=${None}">
+<name>sudo</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>${common_bin}/del_user.sh</doc>
+<shortdoc>${common_bin}/del_user.sh</shortdoc>
+</kw>
+<kw name="取得本机ip地址" lineno="21">
+<arguments repr="iface=${current_card}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="iface=${current_card}">
+<name>iface</name>
+<default>${current_card}</default>
+</arg>
+</arguments>
+<doc>获取本机IP地址，默认使用eth1，然后使用eth0</doc>
+<shortdoc>获取本机IP地址，默认使用eth1，然后使用eth0</shortdoc>
+</kw>
+<kw name="新建用户" lineno="58">
+<arguments repr="">
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="本地执行命令" lineno="27">
+<arguments repr="command">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="command">
+<name>command</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Run And Return Rc And Output</doc>
+<shortdoc>封装OperatingSystem：Run And Return Rc And Output</shortdoc>
+</kw>
+<kw name="获取本机ip地址" lineno="14">
+<arguments repr="iface=${current_card}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="iface=${current_card}">
+<name>iface</name>
+<default>${current_card}</default>
+</arg>
+</arguments>
+<doc>Get local machine ip address eth1 or eth0</doc>
+<shortdoc>Get local machine ip address eth1 or eth0</shortdoc>
+</kw>
+<kw name="远程执行命令" lineno="34">
+<arguments repr="target, command">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="target">
+<name>target</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="command">
+<name>command</name>
+</arg>
+</arguments>
+<doc>封装lib/network.py SSH CMD
+${target}以逗号分割的ip列表</doc>
+<shortdoc>封装lib/network.py SSH CMD ${target}以逗号分割的ip列表</shortdoc>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

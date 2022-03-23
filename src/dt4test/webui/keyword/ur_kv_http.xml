@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="kv_http" type="RESOURCE" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:05Z" specversion="3" source="../../../resource/kv_http.resource" lineno="1">
+<version/>
+<doc>Documentation for resource file ``kv_http``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="主备切换" lineno="59">
+<arguments repr="bid, replica_set_id, cache_ip_port, bid_password=testckv">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="bid">
+<name>bid</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="replica_set_id">
+<name>replica_set_id</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="cache_ip_port">
+<name>cache_ip_port</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="bid_password=testckv">
+<name>bid_password</name>
+<default>testckv</default>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="查询Job" lineno="50">
+<arguments repr="job_id, bid=110">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="job_id">
+<name>job_id</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="bid=110">
+<name>bid</name>
+<default>110</default>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="获取bid信息" lineno="32">
+<arguments repr="bid, bid_password=testckv">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="bid">
+<name>bid</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="bid_password=testckv">
+<name>bid_password</name>
+<default>testckv</default>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="获取cache信息" lineno="41">
+<arguments repr="bid, bid_password=testckv">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="bid">
+<name>bid</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="bid_password=testckv">
+<name>bid_password</name>
+<default>testckv</default>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="jsonp" type="RESOURCE" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:04Z" specversion="3" source="../../resource/jsonp.resource" lineno="1">
+<version/>
+<doc>Documentation for resource file ``jsonp``.</doc>
+<tags>
+<tag>操作符</tag>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="取得值" lineno="12">
+<arguments repr="res, item, type=str">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="res">
+<name>res</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="type=str">
+<name>type</name>
+<default>str</default>
+</arg>
+</arguments>
+<doc>取得返回json中的特定内容</doc>
+<shortdoc>取得返回json中的特定内容</shortdoc>
+<tags>
+<tag>操作符</tag>
+</tags>
+</kw>
+<kw name="对比值" lineno="5">
+<arguments repr="res, item, exp, exptype=unicode">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="res">
+<name>res</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="exp">
+<name>exp</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="exptype=unicode">
+<name>exptype</name>
+<default>unicode</default>
+</arg>
+</arguments>
+<doc>抽取CURL的返回和预期对比</doc>
+<shortdoc>抽取CURL的返回和预期对比</shortdoc>
+<tags>
+<tag>操作符</tag>
+</tags>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

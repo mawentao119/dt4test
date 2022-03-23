@@ -1,0 +1,1325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="expectation" type="RESOURCE" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:04Z" specversion="3" source="../../resource/expectation.resource" lineno="1">
+<version/>
+<doc>Documentation for resource file ``expectation``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="列表应该不包含值" lineno="218">
+<arguments repr="list, value, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：List Should Not Contain Value</doc>
+<shortdoc>封装Collections：List Should Not Contain Value</shortdoc>
+</kw>
+<kw name="列表应该不包含匹配" lineno="247">
+<arguments repr="list, pattern, msg=${None}, case_insensitive=${false}, whitespace_insensitive=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="case_insensitive=${false}">
+<name>case_insensitive</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="whitespace_insensitive=${false}">
+<name>whitespace_insensitive</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Should Not Contain Match</doc>
+<shortdoc>封装Collections：Should Not Contain Match</shortdoc>
+</kw>
+<kw name="列表应该不包含模式" lineno="242">
+<arguments repr="list, pattern, msg=${None}, case_insensitive=${false}, whitespace_insensitive=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="case_insensitive=${false}">
+<name>case_insensitive</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="whitespace_insensitive=${false}">
+<name>whitespace_insensitive</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Should Not Contain Match</doc>
+<shortdoc>封装Collections：Should Not Contain Match</shortdoc>
+</kw>
+<kw name="列表应该不包含重复值" lineno="223">
+<arguments repr="list, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：List Should Not Contain Duplicates</doc>
+<shortdoc>封装Collections：List Should Not Contain Duplicates</shortdoc>
+</kw>
+<kw name="列表应该包含值" lineno="213">
+<arguments repr="list, value, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：List Should Contain Value</doc>
+<shortdoc>封装Collections：List Should Contain Value</shortdoc>
+</kw>
+<kw name="列表应该包含列表" lineno="208">
+<arguments repr="list, sublist, msg=${None}, values=${true}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="sublist">
+<name>sublist</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+</arguments>
+<doc>封装Collections：List Should Contain Sub List</doc>
+<shortdoc>封装Collections：List Should Contain Sub List</shortdoc>
+</kw>
+<kw name="列表应该包含匹配" lineno="237">
+<arguments repr="list, pattern, msg=${None}, case_insensitive=${false}, whitespace_insensitive=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="case_insensitive=${false}">
+<name>case_insensitive</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="whitespace_insensitive=${false}">
+<name>whitespace_insensitive</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Should Contain Match</doc>
+<shortdoc>封装Collections：Should Contain Match</shortdoc>
+</kw>
+<kw name="列表应该包含模式" lineno="233">
+<arguments repr="list, pattern, msg=${None}, case_insensitive=${false}, whitespace_insensitive=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list">
+<name>list</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="case_insensitive=${false}">
+<name>case_insensitive</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="whitespace_insensitive=${false}">
+<name>whitespace_insensitive</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Should Contain Match</doc>
+<shortdoc>封装Collections：Should Contain Match</shortdoc>
+</kw>
+<kw name="列表应该相等" lineno="228">
+<arguments repr="list1, list2, msg=${None}, values=${true}, names=${None}, ignore_order=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list1">
+<name>list1</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="list2">
+<name>list2</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="names=${None}">
+<name>names</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_order=${false}">
+<name>ignore_order</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Lists Should Be Equal</doc>
+<shortdoc>封装Collections：Lists Should Be Equal</shortdoc>
+</kw>
+<kw name="字典应该不包含主键" lineno="188">
+<arguments repr="dict, key, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict">
+<name>dict</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="key">
+<name>key</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Dictionary Should Not Contain Key</doc>
+<shortdoc>封装Collections：Dictionary Should Not Contain Key</shortdoc>
+</kw>
+<kw name="字典应该不包含值" lineno="203">
+<arguments repr="dict, value, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict">
+<name>dict</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Dictionary Should Not Contain Value</doc>
+<shortdoc>封装Collections：Dictionary Should Not Contain Value</shortdoc>
+</kw>
+<kw name="字典应该不包含键" lineno="184">
+<arguments repr="dict, key, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict">
+<name>dict</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="key">
+<name>key</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Dictionary Should Not Contain Key</doc>
+<shortdoc>封装Collections：Dictionary Should Not Contain Key</shortdoc>
+</kw>
+<kw name="字典应该包含主键" lineno="179">
+<arguments repr="dict, key, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict">
+<name>dict</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="key">
+<name>key</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Dictionary Should Contain Key</doc>
+<shortdoc>封装Collections：Dictionary Should Contain Key</shortdoc>
+</kw>
+<kw name="字典应该包含值" lineno="198">
+<arguments repr="dict, value, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict">
+<name>dict</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Dictionary Should Contain Value</doc>
+<shortdoc>封装Collections：Dictionary Should Contain Value</shortdoc>
+</kw>
+<kw name="字典应该包含元素" lineno="170">
+<arguments repr="dict, key, value, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict">
+<name>dict</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="key">
+<name>key</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Dictionary Should Contain Item</doc>
+<shortdoc>封装Collections：Dictionary Should Contain Item</shortdoc>
+</kw>
+<kw name="字典应该包含字典" lineno="193">
+<arguments repr="dict1, dict2, msg=${None}, values=${true}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict1">
+<name>dict1</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict2">
+<name>dict2</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Dictionary Should Contain Sub Dictionary</doc>
+<shortdoc>封装Collections：Dictionary Should Contain Sub Dictionary</shortdoc>
+</kw>
+<kw name="字典应该包含键" lineno="175">
+<arguments repr="dict, key, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict">
+<name>dict</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="key">
+<name>key</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Dictionary Should Contain Key</doc>
+<shortdoc>封装Collections：Dictionary Should Contain Key</shortdoc>
+</kw>
+<kw name="字典应该包含项" lineno="166">
+<arguments repr="dict, key, value, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict">
+<name>dict</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="key">
+<name>key</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Dictionary Should Contain Item</doc>
+<shortdoc>封装Collections：Dictionary Should Contain Item</shortdoc>
+</kw>
+<kw name="字典应该相等" lineno="161">
+<arguments repr="dict1, dict2, msg=${None}, values=${true}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict1">
+<name>dict1</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="dict2">
+<name>dict2</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+</arguments>
+<doc>封装Collections：Dictionaries Should Be Equal</doc>
+<shortdoc>封装Collections：Dictionaries Should Be Equal</shortdoc>
+</kw>
+<kw name="字符串应该不相等" lineno="73">
+<arguments repr="first, second, msg=${None}, values=${true}, ignore_case=${false}, strip_spaces=${false}, collapse_spaces=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="first">
+<name>first</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="second">
+<name>second</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="strip_spaces=${false}">
+<name>strip_spaces</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="collapse_spaces=${false}">
+<name>collapse_spaces</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Not Be Equal As Strings</doc>
+<shortdoc>封装Build-in：Should Not Be Equal As Strings</shortdoc>
+</kw>
+<kw name="字符串应该相等" lineno="68">
+<arguments repr="first, second, msg=${None}, values=${true}, ignore_case=${false}, strip_spaces=${false}, formatter=str, collapse_spaces=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="first">
+<name>first</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="second">
+<name>second</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="strip_spaces=${false}">
+<name>strip_spaces</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="formatter=str">
+<name>formatter</name>
+<default>str</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="collapse_spaces=${false}">
+<name>collapse_spaces</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Be Equal As Strings</doc>
+<shortdoc>封装Build-in：Should Be Equal As Strings</shortdoc>
+</kw>
+<kw name="应该不包含" lineno="101">
+<arguments repr="container, item, msg=${None}, values=${true}, ignore_case=${false}, strip_spaces=${false}, collapse_spaces=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="container">
+<name>container</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="strip_spaces=${false}">
+<name>strip_spaces</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="collapse_spaces=${false}">
+<name>collapse_spaces</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Not Contain</doc>
+<shortdoc>封装Build-in：Should Not Contain</shortdoc>
+</kw>
+<kw name="应该不包含任意" lineno="111">
+<arguments repr="container, *items, **configuration">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="container">
+<name>container</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*items">
+<name>items</name>
+</arg>
+<arg kind="VAR_NAMED" required="false" repr="**configuration">
+<name>configuration</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Not Contain Any</doc>
+<shortdoc>封装Build-in：Should Not Contain Any</shortdoc>
+</kw>
+<kw name="应该不匹配" lineno="146">
+<arguments repr="str, pattern, msg=${None}, values=${true}, ignore_case=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="str">
+<name>str</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Not Match</doc>
+<shortdoc>封装Build-in：Should Not Match</shortdoc>
+</kw>
+<kw name="应该不匹配正则" lineno="156">
+<arguments repr="str, pattern, msg=${None}, values=${true}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="str">
+<name>str</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Not Match Regexp</doc>
+<shortdoc>封装Build-in：Should Not Match Regexp</shortdoc>
+</kw>
+<kw name="应该不存在" lineno="43">
+<arguments repr="path, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Should Not Exist</doc>
+<shortdoc>封装OperatingSystem：Should Not Exist</shortdoc>
+</kw>
+<kw name="应该不相等" lineno="33">
+<arguments repr="first, second, msg=${None}, values=${true}, ignore_case=${false}, strip_spaces=${false}, collapse_spaces=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="first">
+<name>first</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="second">
+<name>second</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="strip_spaces=${false}">
+<name>strip_spaces</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="collapse_spaces=${false}">
+<name>collapse_spaces</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Not Be Equal</doc>
+<shortdoc>封装Build-in：Should Not Be Equal</shortdoc>
+</kw>
+<kw name="应该为假" lineno="91">
+<arguments repr="condition, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="condition">
+<name>condition</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Not Be True</doc>
+<shortdoc>封装Build-in：Should Not Be True</shortdoc>
+</kw>
+<kw name="应该为真" lineno="82">
+<arguments repr="condition, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="condition">
+<name>condition</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Be True</doc>
+<shortdoc>封装Build-in：Should Be True</shortdoc>
+</kw>
+<kw name="应该包含" lineno="96">
+<arguments repr="container, item, msg=${None}, values=${true}, ignore_case=${false}, strip_spaces=${false}, collapse_spaces=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="container">
+<name>container</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="strip_spaces=${false}">
+<name>strip_spaces</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="collapse_spaces=${false}">
+<name>collapse_spaces</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Contain</doc>
+<shortdoc>封装Build-in：Should Contain</shortdoc>
+</kw>
+<kw name="应该包含N次" lineno="116">
+<arguments repr="container, item, count, msg=${None}, ignore_case=${false}, strip_spaces=${false}, collapse_spaces=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="container">
+<name>container</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="count">
+<name>count</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="strip_spaces=${false}">
+<name>strip_spaces</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="collapse_spaces=${false}">
+<name>collapse_spaces</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Contain X Times</doc>
+<shortdoc>封装Build-in：Should Contain X Times</shortdoc>
+</kw>
+<kw name="应该包含任意" lineno="106">
+<arguments repr="container, *items, **configuration">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="container">
+<name>container</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*items">
+<name>items</name>
+</arg>
+<arg kind="VAR_NAMED" required="false" repr="**configuration">
+<name>configuration</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Contain Any</doc>
+<shortdoc>封装Build-in：Should Contain Any</shortdoc>
+</kw>
+<kw name="应该匹配" lineno="141">
+<arguments repr="str, pattern, msg=${None}, values=${true}, ignore_case=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="str">
+<name>str</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Match</doc>
+<shortdoc>封装Build-in：Should Match</shortdoc>
+</kw>
+<kw name="应该匹配正则" lineno="151">
+<arguments repr="str, pattern, msg=${None}, values=${true}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="str">
+<name>str</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Match Regexp</doc>
+<shortdoc>封装Build-in：Should Match Regexp</shortdoc>
+</kw>
+<kw name="应该存在" lineno="38">
+<arguments repr="path, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Should Exist</doc>
+<shortdoc>封装OperatingSystem：Should Exist</shortdoc>
+</kw>
+<kw name="应该是Unicode串" lineno="280">
+<arguments repr="item, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装String：Should Be Unicode String</doc>
+<shortdoc>封装String：Should Be Unicode String</shortdoc>
+</kw>
+<kw name="应该是大写" lineno="266">
+<arguments repr="item, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装String：Should Be Upper Case</doc>
+<shortdoc>封装String：Should Be Upper Case</shortdoc>
+</kw>
+<kw name="应该是大写串" lineno="270">
+<arguments repr="item, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装String：Should Be Upper Case</doc>
+<shortdoc>封装String：Should Be Upper Case</shortdoc>
+</kw>
+<kw name="应该是字符串" lineno="275">
+<arguments repr="item, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装String：Should Be String</doc>
+<shortdoc>封装String：Should Be String</shortdoc>
+</kw>
+<kw name="应该是字节串" lineno="252">
+<arguments repr="item, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装String：Should Be Byte String</doc>
+<shortdoc>封装String：Should Be Byte String</shortdoc>
+</kw>
+<kw name="应该是小写" lineno="257">
+<arguments repr="item, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装String：Should Be Lower Case</doc>
+<shortdoc>封装String：Should Be Lower Case</shortdoc>
+</kw>
+<kw name="应该是小写串" lineno="261">
+<arguments repr="item, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装String：Should Be Lower Case</doc>
+<shortdoc>封装String：Should Be Lower Case</shortdoc>
+</kw>
+<kw name="应该是真" lineno="78">
+<arguments repr="condition, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="condition">
+<name>condition</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Be True</doc>
+<shortdoc>封装Build-in：Should Be True</shortdoc>
+</kw>
+<kw name="应该是空" lineno="19">
+<arguments repr="aitem, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="aitem">
+<name>aitem</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="应该相等" lineno="28">
+<arguments repr="first, second, msg=${None}, values=${true}, ignore_case=${false}, formatter=str, strip_spaces=${false}, collapse_spaces=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="first">
+<name>first</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="second">
+<name>second</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="formatter=str">
+<name>formatter</name>
+<default>str</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="strip_spaces=${false}">
+<name>strip_spaces</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="collapse_spaces=${false}">
+<name>collapse_spaces</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Be Equal</doc>
+<shortdoc>封装Build-in：Should Be Equal</shortdoc>
+</kw>
+<kw name="应该非真" lineno="87">
+<arguments repr="condition, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="condition">
+<name>condition</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Not Be True</doc>
+<shortdoc>封装Build-in：Should Not Be True</shortdoc>
+</kw>
+<kw name="应该非空" lineno="23">
+<arguments repr="aitem, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="aitem">
+<name>aitem</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Not Be Empty 数组、字符串、或字典</doc>
+<shortdoc>封装Build-in：Should Not Be Empty 数组、字符串、或字典</shortdoc>
+</kw>
+<kw name="开头应该不是" lineno="126">
+<arguments repr="str1, str2, msg=${None}, values=${true}, ignore_case=${false}, strip_spaces=${false}, collapse_spaces=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="str1">
+<name>str1</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="str2">
+<name>str2</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="strip_spaces=${false}">
+<name>strip_spaces</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="collapse_spaces=${false}">
+<name>collapse_spaces</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Not Start With</doc>
+<shortdoc>封装Build-in：Should Not Start With</shortdoc>
+</kw>
+<kw name="开头应该是" lineno="121">
+<arguments repr="str1, str2, msg=${None}, values=${true}, ignore_case=${false}, strip_spaces=${false}, collapse_spaces=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="str1">
+<name>str1</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="str2">
+<name>str2</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="strip_spaces=${false}">
+<name>strip_spaces</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="collapse_spaces=${false}">
+<name>collapse_spaces</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Start With</doc>
+<shortdoc>封装Build-in：Should Start With</shortdoc>
+</kw>
+<kw name="数值应该不相等" lineno="63">
+<arguments repr="first, second, msg=${None}, values=${true}, precision=6">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="first">
+<name>first</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="second">
+<name>second</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="precision=6">
+<name>precision</name>
+<default>6</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Not Be Equal As Numbers</doc>
+<shortdoc>封装Build-in：Should Not Be Equal As Numbers</shortdoc>
+</kw>
+<kw name="数值应该相等" lineno="58">
+<arguments repr="first, second, msg=${None}, values=${true}, precision=6">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="first">
+<name>first</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="second">
+<name>second</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="precision=6">
+<name>precision</name>
+<default>6</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Be Equal As Numbers</doc>
+<shortdoc>封装Build-in：Should Be Equal As Numbers</shortdoc>
+</kw>
+<kw name="整数应该不相等" lineno="53">
+<arguments repr="first, second, msg=${None}, values=${true}, base=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="first">
+<name>first</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="second">
+<name>second</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="base=${None}">
+<name>base</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Not Be Equal As Integers</doc>
+<shortdoc>封装Build-in：Should Not Be Equal As Integers</shortdoc>
+</kw>
+<kw name="整数应该相等" lineno="48">
+<arguments repr="first, second, msg=${None}, values=${true}, base=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="first">
+<name>first</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="second">
+<name>second</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="base=${None}">
+<name>base</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Be Equal As Integers</doc>
+<shortdoc>封装Build-in：Should Be Equal As Integers</shortdoc>
+</kw>
+<kw name="文件应该不存在" lineno="338">
+<arguments repr="path, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：File Should Not Exist</doc>
+<shortdoc>封装OperatingSystem：File Should Not Exist</shortdoc>
+</kw>
+<kw name="文件应该为空" lineno="319">
+<arguments repr="path, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：File Should Be Empty</doc>
+<shortdoc>封装OperatingSystem：File Should Be Empty</shortdoc>
+</kw>
+<kw name="文件应该存在" lineno="333">
+<arguments repr="path, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：File Should Exist</doc>
+<shortdoc>封装OperatingSystem：File Should Exist</shortdoc>
+</kw>
+<kw name="文件应该是空" lineno="323">
+<arguments repr="path, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：File Should Be Empty</doc>
+<shortdoc>封装OperatingSystem：File Should Be Empty</shortdoc>
+</kw>
+<kw name="文件应该非空" lineno="328">
+<arguments repr="path, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：File Should Not Be Empty</doc>
+<shortdoc>封装OperatingSystem：File Should Not Be Empty</shortdoc>
+</kw>
+<kw name="环境变量应该不存在" lineno="314">
+<arguments repr="name, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="name">
+<name>name</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Environment Variable Should Not Be Set</doc>
+<shortdoc>封装OperatingSystem：Environment Variable Should Not Be Set</shortdoc>
+</kw>
+<kw name="环境变量应该存在" lineno="309">
+<arguments repr="name, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="name">
+<name>name</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Environment Variable Should Be Set</doc>
+<shortdoc>封装OperatingSystem：Environment Variable Should Be Set</shortdoc>
+</kw>
+<kw name="目录应该不存在" lineno="304">
+<arguments repr="path, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Directory Should Not Exist</doc>
+<shortdoc>封装OperatingSystem：Directory Should Not Exist</shortdoc>
+</kw>
+<kw name="目录应该为空" lineno="289">
+<arguments repr="path, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Directory Should Be Empty</doc>
+<shortdoc>封装OperatingSystem：Directory Should Be Empty</shortdoc>
+</kw>
+<kw name="目录应该存在" lineno="299">
+<arguments repr="path, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Directory Should Exist</doc>
+<shortdoc>封装OperatingSystem：Directory Should Exist</shortdoc>
+</kw>
+<kw name="目录应该是空" lineno="285">
+<arguments repr="path, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Directory Should Be Empty</doc>
+<shortdoc>封装OperatingSystem：Directory Should Be Empty</shortdoc>
+</kw>
+<kw name="目录应该非空" lineno="294">
+<arguments repr="path, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Directory Should Not Be Empty</doc>
+<shortdoc>封装OperatingSystem：Directory Should Not Be Empty</shortdoc>
+</kw>
+<kw name="结尾应该不是" lineno="136">
+<arguments repr="str1, str2, msg=${None}, values=${true}, ignore_case=${false}, strip_spaces=${false}, collapse_spaces=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="str1">
+<name>str1</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="str2">
+<name>str2</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="strip_spaces=${false}">
+<name>strip_spaces</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="collapse_spaces=${false}">
+<name>collapse_spaces</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Not End With</doc>
+<shortdoc>封装Build-in：Should Not End With</shortdoc>
+</kw>
+<kw name="结尾应该是" lineno="131">
+<arguments repr="str1, str2, msg=${None}, values=${true}, ignore_case=${false}, strip_spaces=${false}, collapse_spaces=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="str1">
+<name>str1</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="str2">
+<name>str2</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="values=${true}">
+<name>values</name>
+<default>${true}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="ignore_case=${false}">
+<name>ignore_case</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="strip_spaces=${false}">
+<name>strip_spaces</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="collapse_spaces=${false}">
+<name>collapse_spaces</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should End With</doc>
+<shortdoc>封装Build-in：Should End With</shortdoc>
+</kw>
+<kw name="长度应该是" lineno="10">
+<arguments repr="aitem, length">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="aitem">
+<name>aitem</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="length">
+<name>length</name>
+</arg>
+</arguments>
+<doc>封装Build-in：Length Should Be 数组、字符串、或字典</doc>
+<shortdoc>封装Build-in：Length Should Be 数组、字符串、或字典</shortdoc>
+</kw>
+<kw name="长度应该是空" lineno="15">
+<arguments repr="aitem, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="aitem">
+<name>aitem</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Build-in：Should Be Empty 数组、字符串、或字典</doc>
+<shortdoc>封装Build-in：Should Be Empty 数组、字符串、或字典</shortdoc>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

@@ -6,7 +6,7 @@ import subprocess
 from .helper import Helper
 from .logger import Logger
 
-log = Logger().get_logger()
+log = Logger().get_logger(__name__)
 
 
 class SSHClass:
@@ -19,8 +19,8 @@ class SSHClass:
         self.user = user
         self.pwd = pwd
         self.port = port
-        self.Error = True
-        self.Errorinfo = None
+        self.is_error = False
+        self.error_info = None
         self.sshtype = sshtype
 
         self.sshclient = None
@@ -28,13 +28,15 @@ class SSHClass:
         try:
             self.sshclient, self.scpclient, self.sftp = self.init(self.sshtype)
         except paramiko.AuthenticationException as a:
-            self.Error = False
-            self.Errorinfo = a
-            log.error(self.Errorinfo)
+            self.is_error = True
+            self.error_info = a
+            log.error(self.error_info)
+            raise a
         except Exception as e:
-            self.Error = False
-            self.Errorinfo = 'Exception: {0}'.format(e)
-            log.error(self.Errorinfo)
+            self.is_error = True
+            self.error_info = 'Exception: {0}'.format(e)
+            log.error(self.error_info)
+            raise e
 
     def init(self, sshtype):
         # 初始化  链接
@@ -70,7 +72,7 @@ class SSHClass:
         sout = []
         serr = []
         status = 1
-        if self.Error and type(command) == str:
+        if not self.is_error and type(command) == str:
             log.info("执行远程命令:{}".format(command))
             stdin, stdout, stderr = self.sshclient.exec_command(command, bufsize=10, timeout=timeout, get_pty=True)
             if datatype == 1:
@@ -89,13 +91,13 @@ class SSHClass:
 
             status = stdout.channel.recv_exit_status()
         else:
-            serr = [self.Errorinfo]
+            serr = [self.error_info]
         return sout, serr, status
 
     def getscp(self, sourcepath, distpath, type):
         status = 1
         info = None
-        if self.Error:
+        if not self.is_error:
             try:
                 if type == 1:
                     log.info("Put src:{} des:{}".format(sourcepath, distpath))
@@ -108,14 +110,16 @@ class SSHClass:
                 status = 1
                 info = str(e)
                 log.error(info)
+                raise e
             except Exception as e:
                 status = 1
                 info = str(e)
                 if info == "Failure":
                     info = "Failure, distfile path error"
                 log.error(info)
+                raise e
         else:
-            info = self.Errorinfo
+            info = self.error_info
         return status, info
 
     def close(self):
@@ -153,6 +157,7 @@ class Network(Helper):
             response = requests.get(url, params=payload)
         except Exception as err:
             log.error("send restful request failed, cmd: {0}, payload: {1}, err: {2}".format(url, payload, err))
+            raise err
         return response
 
     def send_post_request(self, host, path, payload, headers=None):
@@ -179,6 +184,7 @@ class Network(Helper):
             response = requests.post(url, data=payload, headers=headers)
         except Exception as err:
             log.error("send restful request failed, cmd: {0}, payload: {1}, err: {2}".format(url, payload, err))
+            raise err
         return response
 
     def ssh_cmd(self, cmd, host, user, passwd, port, timeout=120, datatype=1):
@@ -198,10 +204,13 @@ class Network(Helper):
             log.info("ssh_cmd参数:{} {} {} {} {} ".format(host, user, passwd, port, cmd))
             ssh = SSHClass(host, user, passwd, int(port), sshtype=1)
             return ssh.getexe(cmd, timeout=timeout, datatype=datatype)
+        except Exception as e:
+            log.error("远程执行命令失败：{}".format(e))
+            raise e
         finally:
             ssh.close()
 
-    def ssh_upload(self, sourcepath, distpath, host, user, passwd, port):
+    def ssh_upload(self, sourcepath, distpath, host, user, passwd, port=36000):
         """
         | Scp 上传文件到远程主机
         | :param sourcepath:
@@ -218,6 +227,9 @@ class Network(Helper):
                 "ssh_upload参数: src:{} des:{} {} {} {} {}".format(sourcepath, distpath, host, user, passwd, port))
             ssh = SSHClass(host, user, passwd, int(port), sshtype=2)
             return ssh.getscp(sourcepath, distpath, 1)
+        except Exception as e:
+            log.error("上传文件失败：{}".format(e))
+            raise e
         finally:
             ssh.close()
 
@@ -238,6 +250,9 @@ class Network(Helper):
                 "ssh_upload参数: src:{} des:{} {} {} {} {}".format(sourcepath, distpath, host, user, passwd, port))
             ssh = SSHClass(host, user, passwd, int(port), sshtype=2)
             return ssh.getscp(sourcepath, distpath, 2)
+        except Exception as e:
+            log.error("下载文件失败：{}".format(e))
+            raise e
         finally:
             ssh.close()
 
@@ -263,7 +278,14 @@ class Network(Helper):
             if arg.startswith('-s'):
                 arg = ''
             cmd += arg + ' '
-        log.info("**CURL: " + cmd)
-        p = subprocess.Popen(cmd)
-        stdout, stderr = p.communicate()
+        try:
+            log.info("**CURL: " + cmd)
+            p = subprocess.Popen(cmd)
+            stdout, stderr = p.communicate()
+        except Exception as e:
+            log.error("Curl命令失败：{}".format(e))
+            raise e
         return p.returncode, stdout, stderr
+
+
+NETWORK = Network()

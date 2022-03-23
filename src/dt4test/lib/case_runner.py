@@ -3,7 +3,7 @@ from .helper import Helper
 from .network import Network
 from .logger import Logger
 
-log = Logger().get_logger()
+log = Logger().get_logger(__name__)
 
 class CaseRunner(Helper):
     """
@@ -38,3 +38,5 @@ class CaseRunner(Helper):
         res = self.network.send_post_request("127.0.0.1:8080", "/api/v1/task/", payload)
         s = bytes.decode(res.content)
         return s
+
+CASERUNNER = CaseRunner()

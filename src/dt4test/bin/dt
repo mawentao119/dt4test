@@ -1,0 +1,82 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+
+# 【check】环境变量的check， 在dt脚本开始
+if not os.environ.get("PROJECT_DIR", None):
+    print("ERROR : 请设置环境变量 'PROJECT_DIR' 指向你的测试代码目录.")
+    exit(1)
+
+
+import dt4test
+
+PROJECT_DIR = os.environ.get("PROJECT_DIR")
+
+
+def show_all_modules():
+    dirs = dt4test.__dir__()
+    for m in dirs:
+        if not (m.startswith('_') or m == 'lib' or m == 'resource'):
+            at = dt4test.__getattribute__(m)
+            if at.__module__.find(".resource.") != -1:
+                print("Resource {}:{}".format(m, at.__doc__.splitlines()[1].strip() if at.__doc__ else ""))
+            else:
+                print("Lib {}:{}".format(m, at.__doc__.splitlines()[1].strip() if at.__doc__ else ""))
+
+    user_res = dt4test.resource.get_user_resource()
+    for res in user_res.keys():
+        print("User Res: "+res)
+
+
+def show_usage():
+    print("***********dt4test client***************")
+    print("Log file:{}".format(dt4test.Logger().get_logfile()))
+    print(">> 所有模块 ... ")
+    show_all_modules()
+    print(">> dt 模块名 [模块参数] ：得到具体的帮助和执行相应的操作")
+    print("*****************************************")
+
+
+if __name__ == '__main__':
+
+    myos = dt4test.o_s
+    myenv = dt4test.env
+    monitor = dt4test.monitor
+    resource = dt4test.resource
+
+    if len(sys.argv) == 1:
+        show_usage()
+        exit(1)
+
+    if len(sys.argv) >= 2 and sys.argv[1] == 'webui':
+        port = "8081"
+        if len(sys.argv) == 3:
+            port = str(sys.argv[2])
+        dirs = os.path.dirname(dt4test.__file__) + '/webui'
+        os.chdir(dirs)
+        print('>> Start web ui {} : nohup python app.py --host 0.0.0.0 --port {} & '.format(dirs, port))
+        os.system('nohup python app.py --host 0.0.0.0 --port ' + port + ' & ')
+        myos.create_file(PROJECT_DIR + "/output/.webui.info", "127.0.0.1 " + port)
+        exit(0)
+
+    if len(sys.argv) >= 2 and sys.argv[1] in ['env', 'ssh', 'sshf', 'scp','put','get']:
+        exit(myenv.cli(sys.argv))
+
+    if len(sys.argv) >= 2 and sys.argv[1] == 'monitor':
+        exit(monitor.cli(sys.argv))
+
+    if len(sys.argv) >= 4 and sys.argv[1] == 'create' and sys.argv[2] == 'monitor':
+        exit(monitor.cli(sys.argv))
+
+    if len(sys.argv) >= 2 and sys.argv[1] == 'resource':
+        exit(resource.cli(sys.argv))
+
+    if len(sys.argv) >= 4 and sys.argv[1] == 'create' and sys.argv[2] == 'resource':
+        exit(resource.cli(sys.argv))
+
+    if len(sys.argv) >= 2:
+        user_res = resource.get_user_resource()
+        exit(user_res[sys.argv[1]].cli(sys.argv))
+

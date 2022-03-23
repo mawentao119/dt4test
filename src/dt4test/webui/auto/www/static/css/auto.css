@@ -1,0 +1,297 @@
+.icon-editor{
+	background:url('../img/editor.png') no-repeat center center;
+}
+
+.icon-expand{
+	background:url('../img/expand.png') no-repeat center center;
+}
+
+.icon-collapse{
+	background:url('../img/collapse.png') no-repeat center center;
+}
+
+.icon-logout{
+	background:url('../img/logout.png') no-repeat center center;
+}
+
+.icon-logo_16{
+	background:url('../img/logo_16.png') no-repeat center center;
+}
+
+.icon-workspace{
+	background:url('../img/workspace.png') no-repeat center center;
+}
+
+.icon-guide{
+	background:url('../img/guide.png') no-repeat center center;
+}
+
+.icon-suite{
+	background:url('../img/suite.png') no-repeat center center;
+}
+
+.icon-suite-open{
+	background:url('../img/suite.open.png') no-repeat center center;
+}
+
+.icon-suite-open_case{
+	background:url('../img/suite.open_case.png') no-repeat center center;
+}
+
+.icon-project_m{
+    background:url('../img/project_m24.png') no-repeat center center;
+}
+
+.icon-project_s{
+    background:url('../img/project_s24.png') no-repeat center center;
+}
+
+.icon-robot{
+    background:url('../img/robot.png') no-repeat center center;
+}
+
+.icon-robot_pass{
+    background:url('../img/robot_pass.png') no-repeat center center;
+}
+
+.icon-robot_fail{
+    background:url('../img/robot_fail.png') no-repeat center center;
+}
+
+.icon-markpass{
+    background:url('../img/markpass.png') no-repeat center center;
+}
+
+.icon-markfail{
+    background:url('../img/markfail.png') no-repeat center center;
+}
+
+.icon-markunknown{
+    background:url('../img/markunknown.png') no-repeat center center;
+}
+
+.icon-yaml{
+    background:url('../img/yaml.png') no-repeat center center;
+}
+
+.icon-resource{
+    background:url('../img/resource.png') no-repeat center center;
+}
+
+.icon-file-default{
+    background:url('../img/file.default.png') no-repeat center center;
+}
+
+
+.icon-remove{
+    background:url('../img/delete.png') no-repeat center center;
+}
+
+.icon-debug{
+    background:url('../img/bug.png') no-repeat center center;
+}
+
+.icon-save{
+    background:url('../img/save.png') no-repeat center center;
+}
+
+.icon-run{
+    background:url('../img/run.png') no-repeat center center;
+}
+
+.icon-debugrun{
+    background:url('../img/debugrun.png') no-repeat center center;
+}
+
+.icon-task-list{
+    background:url('../img/task.list.png') no-repeat center center;
+}
+
+.icon-task{
+    background:url('../img/task.png') no-repeat center center;
+}
+
+.icon-list{
+    background:url('../img/list.png') no-repeat center center;
+}
+
+.icon-configitem{
+    background:url('../img/configitem.png') no-repeat center center;
+}
+
+.icon-export{
+    background:url('../img/export.png') no-repeat center center;
+}
+
+.icon-compare{
+    background:url('../img/compare.png') no-repeat center center;
+}
+
+.icon-image{
+    background:url('../img/image.png') no-repeat center center;
+}
+
+.icon-keyword-list{
+    background:url('../img/keyword.list.png') no-repeat center center;
+}
+
+.icon-keyword{
+    background:url('../img/keyword.png') no-repeat center center;
+}
+
+.icon-keyword-help{
+    background:url('../img/keyword.help.png') no-repeat center center;
+}
+
+.icon-refresh{
+    background:url('../img/refresh.png') no-repeat center center;
+}
+
+.icon-stop{
+    background:url('../img/stop.png') no-repeat center center;
+}
+
+.icon-resume{
+    background:url('../img/resume.png') no-repeat center center;
+}
+
+.icon-edit{
+    background:url('../img/edit.png') no-repeat center center;
+}
+
+.icon-user{
+    background:url('../img/user.png') no-repeat center center;
+}
+
+.icon-python{
+    background:url('../img/python.text.png') no-repeat center center;
+}
+
+.icon-excel{
+    background:url('../img/excel.png') no-repeat center center;
+}
+
+.icon-scheduler{
+    background:url('../img/scheduler.png') no-repeat center center;
+}
+
+.icon-test_env{
+    background:url('../img/test_env.png') no-repeat center center;
+}
+
+.icon-task_mng{
+    background:url('../img/task_mng.png') no-repeat center center;
+}
+
+.icon-schedule_mng{
+    background:url('../img/schedule_mng.png') no-repeat center center;
+}
+
+.icon-project_mng{
+    background:url('../img/project_mng.png') no-repeat center center;
+}
+
+.icon-user_mng{
+    background:url('../img/user_mng.png') no-repeat center center;
+}
+
+.icon-tools{
+    background:url('../img/tools.png') no-repeat center center;
+}
+
+.icon-monitor{
+    background:url('../img/monitor.png') no-repeat center center;
+}
+
+.icon-analyse{
+    background:url('../img/analyse.png') no-repeat center center;
+}
+
+.icon-inject{
+    background:url('../img/inject.png') no-repeat center center;
+}
+
+.icon-performance{
+    background:url('../img/performance.png') no-repeat center center;
+}
+
+.icon-turning{
+    background:url('../img/turning.png') no-repeat center center;
+}
+
+.icon-report{
+    background:url('../img/report.png') no-repeat center center;
+}
+
+.icon-github{
+    background:url('../img/github.png') no-repeat center center;
+}
+
+.icon-update{
+    background:url('../img/update.png') no-repeat center center;
+}
+
+.icon-settings{
+    background:url('../img/settings.png') no-repeat center center;
+}
+
+.icon-email{
+    background:url('../img/email.png') no-repeat center center;
+}
+
+.icon-notification{
+    background:url('../img/notification.png') no-repeat center center;
+}
+
+.icon-library{
+    background:url('../img/library.png') no-repeat center center;
+}
+
+.icon-variable{
+    background:url('../img/variable.png') no-repeat center center;
+}
+
+.icon-step{
+    background:url('../img/step.png') no-repeat center center;
+}
+
+.icon-step_pass{
+    background:url('../img/step_pass.png') no-repeat center center;
+}
+
+.icon-step_fail{
+    background:url('../img/step_fail.png') no-repeat center center;
+}
+
+.icon-user-keyword{
+    background:url('../img/user-keyword.png') no-repeat center center;
+}
+
+.CodeMirror {
+    border: 1px solid #eee;
+    height: auto;
+}
+
+.CodeMirror-selected  {
+    background-color: green !important;
+}
+
+.CodeMirror-selectedtext {
+    color: white;
+}
+
+.styled-background {
+    background-color: #ff7;
+}
+
+.CodeMirror-empty {
+    outline: 1px solid #c22;
+}
+
+.CodeMirror-empty.CodeMirror-focused {
+    outline: none;
+}
+
+.CodeMirror pre.CodeMirror-placeholder {
+    color: #999;
+}

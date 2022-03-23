@@ -1,31 +1,34 @@
 class Helper:
     def help(self):
-        mydir = self.__dir__()
-        funs = []
-        for x in mydir:
-            if not x.startswith('__') and x != 'help':
-              funs.append(self.__getattribute__(x))
+        my_dir = self.__dir__()
+        functions = []
+        for x in my_dir:
+            if not x.startswith('_') and x != 'help':
+                functions.append(self.__getattribute__(x))
 
-        for f in funs:
-            print("{}{}:{}".format(f.__name__, f.__code__.co_varnames, f.__doc__.splitlines()[1].strip()))
+        for f in functions:
+            print("{}{}:{}".format(f.__name__, f.__code__.co_varnames,
+                                   f.__doc__.splitlines()[1].strip() if f.__doc__ else ''))
 
-class testHelper(Helper):
-    def test_func1(self, somestring):
+
+class TestHelper(Helper):
+    def test_func1(self, some_string):
         """
         | 这是一个测试用的类
-        | :somestring: Some string.
+        | :some_string: Some string.
         | :return: Nothing
         """
-        print("Just test fun :{}".format(somestring))
+        print("Just test fun :{}".format(some_string))
 
     def test_func2(self):
         """
         | 这是另一个测试用的类
-        | :somestring: Some string.
+        | :some_string: Some string.
         | :return: Nothing
         """
         print("Just test fun2")
 
+
 if __name__ == "__main__":
-    tt = testHelper()
+    tt = TestHelper()
     tt.help()

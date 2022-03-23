@@ -1,0 +1,783 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <title>State Chart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='lib/easyui/themes/bootstrap/easyui.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='lib/easyui/themes/icon.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auto.css') }}">
+
+  <style type="text/css">
+    .lines-no .datagrid-body td {
+      border-right: 1px dotted transparent;
+      border-bottom: 1px dotted transparent;
+    }
+  </style>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/DataInspector.css') }}">
+  <script src="{{ url_for('static', filename='lib/gojs/DataInspector.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='lib/gojs/migo.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/easyui/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/easyui/jquery.easyui.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='lib/auto.js') }}"></script>
+  <script id="code">
+    function init() {
+      var $ = go.GraphObject.make;
+
+      myDiagram =
+        $(go.Diagram, "myDiagramDiv",
+          {
+            // when a drag-drop occurs in the Diagram's background, make it a top-level node
+            mouseDrop: function (e) { finishDrop(e, null); },
+            layout:  // Diagram has simple horizontal layout
+              $(go.GridLayout,
+                { wrappingWidth: Infinity, alignment: go.GridLayout.Position, cellSize: new go.Size(1, 1) }),
+            "commandHandler.archetypeGroupData": { isGroup: true, text: "Group", horiz: false },
+            "undoManager.isEnabled": true
+          });
+
+      // The one template for Groups can be configured to be either layout out its members
+      // horizontally or vertically, each with a different default color.
+
+      function makeLayout(horiz) {  // a Binding conversion function
+        if (horiz) {
+          return $(go.GridLayout,
+            {
+              wrappingWidth: Infinity, alignment: go.GridLayout.Position,
+              cellSize: new go.Size(1, 1), spacing: new go.Size(4, 4)
+            });
+        } else {
+          return $(go.GridLayout,
+            {
+              wrappingColumn: 1, alignment: go.GridLayout.Position,
+              cellSize: new go.Size(1, 1), spacing: new go.Size(4, 4)
+            });
+        }
+      }
+
+      function defaultColor(horiz) {  // a Binding conversion function
+        return horiz ? "#FFDD33" : "#33D3E5";
+      }
+
+      function defaultFont(horiz) {  // a Binding conversion function
+        return horiz ? "bold 18px sans-serif" : "bold 16px sans-serif";
+      }
+
+      // this function is used to highlight a Group that the selection may be dropped into
+      function highlightGroup(e, grp, show) {
+        if (!grp) return;
+        e.handled = true;
+        if (show) {
+          // cannot depend on the grp.diagram.selection in the case of external drag-and-drops;
+          // instead depend on the DraggingTool.draggedParts or .copiedParts
+          var tool = grp.diagram.toolManager.draggingTool;
+          var map = tool.draggedParts || tool.copiedParts;  // this is a Map
+          // now we can check to see if the Group will accept membership of the dragged Parts
+          if (grp.canAddMembers(map.toKeySet())) {
+            grp.isHighlighted = true;
+            return;
+          }
+        }
+        grp.isHighlighted = false;
+      }
+
+      // Upon a drop onto a Group, we try to add the selection as members of the Group.
+      // Upon a drop onto the background, or onto a top-level Node, make selection top-level.
+      // If this is OK, we're done; otherwise we cancel the operation to rollback everything.
+      function finishDrop(e, grp) {
+        var ok = (grp !== null
+          ? grp.addMembers(grp.diagram.selection, true)
+          : e.diagram.commandHandler.addTopLevelParts(e.diagram.selection, true));
+        if (!ok) e.diagram.currentTool.doCancel();
+      }
+
+      myDiagram.groupTemplate =
+        $(go.Group, "Auto",
+          {
+            background: "transparent",
+            ungroupable: true,
+            // highlight when dragging into the Group
+            mouseDragEnter: function (e, grp, prev) { highlightGroup(e, grp, true); },
+            mouseDragLeave: function (e, grp, next) { highlightGroup(e, grp, false); },
+            computesBoundsAfterDrag: true,
+            // when the selection is dropped into a Group, add the selected Parts into that Group;
+            // if it fails, cancel the tool, rolling back any changes
+            mouseDrop: finishDrop,
+            handlesDragDropForMembers: true,  // don't need to define handlers on member Nodes and Links
+            // Groups containing Groups lay out their members horizontally
+            layout: makeLayout(false)
+          },
+          new go.Binding("layout", "horiz", makeLayout),
+          new go.Binding("background", "isHighlighted", function (h) {
+            return h ? "rgba(255,0,0,0.2)" : "transparent";
+          }).ofObject(),
+          $(go.Shape, "Rectangle",
+            { fill: null, stroke: defaultColor(false), strokeWidth: 2 },
+            new go.Binding("stroke", "horiz", defaultColor),
+            new go.Binding("stroke", "color")),
+          $(go.Panel, "Vertical",  // title above Placeholder
+            $(go.Panel, "Horizontal",  // button next to TextBlock
+              { stretch: go.GraphObject.Horizontal, background: defaultColor(false) },
+              new go.Binding("background", "horiz", defaultColor),
+              new go.Binding("background", "color"),
+              $("SubGraphExpanderButton",
+                { alignment: go.Spot.Right, margin: 5 }),
+              $(go.TextBlock,
+                {
+                  alignment: go.Spot.Left,
+                  editable: true,
+                  margin: 5,
+                  font: defaultFont(false),
+                  opacity: 0.75,  // allow some color to show through
+                  stroke: "#404040"
+                },
+                new go.Binding("font", "horiz", defaultFont),
+                new go.Binding("text", "text").makeTwoWay())
+            ),  // end Horizontal Panel
+            $(go.Placeholder,
+              { padding: 5, alignment: go.Spot.TopLeft })
+          )  // end Vertical Panel
+        );
+
+      myDiagram.nodeTemplate =
+        $(go.Node, "Auto",
+          { // dropping on a Node is the same as dropping on its containing Group, even if it's top-level
+            mouseDrop: function (e, node) { finishDrop(e, node.containingGroup); }
+          },
+          $(go.Shape, "Rectangle",
+            { fill: "#ACE600", stroke: null },
+            new go.Binding("fill", "color")),
+          $(go.TextBlock,
+            {
+              margin: 5,
+              editable: true,
+              font: "bold 13px sans-serif",
+              opacity: 0.75,
+              stroke: "#404040"
+            },
+            new go.Binding("text", "text").makeTwoWay())
+        );
+
+      // initialize the Palette and its contents
+      myPalette =
+        $(go.Palette, "myPaletteDiv",
+          {
+            nodeTemplateMap: myDiagram.nodeTemplateMap,
+            groupTemplateMap: myDiagram.groupTemplateMap
+          });
+
+      myPalette.model = new go.GraphLinksModel([
+        { text: "lightgreen", color: "#ACE600" , properties: ""},
+        { text: "yellow", color: "#FFDD33" , properties: ""},
+        { text: "lightblue", color: "#33D3E5" , properties: ""},
+        { isGroup: true, text: "H Group", horiz: true, "action":"H", enable: true , nodesum: 0},
+        { isGroup: true, text: "V Group", horiz: false, "action":"V", enable: true, nodesum: 0}
+      ]);
+
+      var slider = document.getElementById("levelSlider");
+      slider.addEventListener('change', reexpand);
+      slider.addEventListener('input', reexpand);
+
+      load();
+
+      var inspector = new Inspector('elementInspector', myDiagram, {
+        // allows for multiple nodes to be inspected at once
+        multipleSelection: true,
+        // max number of node properties will be shown when multiple selection is true
+        showSize: 4,
+        // when multipleSelection is true, when showAllProperties is true it takes the union of properties
+        // otherwise it takes the intersection of properties
+        showAllProperties: true,
+        // uncomment this line to only inspect the named properties below instead of all properties on each object:
+        // includesOwnProperties: false,
+        properties: {
+          
+          "text": {},
+          "group": {},
+          "loc": {
+            show: false
+          },
+          "points": {
+            show: false
+          },
+          "from": {
+            show: false
+          },
+          "to": {
+            show: false
+          },
+
+        }
+      });
+
+      // Always show the model.modelData:
+      inspector2 = new Inspector('modelInspector', myDiagram, {
+        inspectSelection: false,
+        properties: {
+          "templateName": {
+            readOnly: true
+          },
+          "nodes": {
+            readOnly: true
+          },
+          "links": {
+            readOnly: true
+          },
+          "actions": {
+            readOnly: true
+          },
+          "variables": {
+            readOnly: true
+          },
+          "init_actions": {},
+          "version": {},
+          "variable": {
+            show: false
+          }
+        }
+      });
+      inspector2.inspectObject(myDiagram.model.modelData);
+
+    }  // END OF init()
+
+    function reexpand(e) {
+      myDiagram.commit(function (diag) {
+        var level = parseInt(document.getElementById("levelSlider").value);
+        diag.findTopLevelGroups().each(function (g) { expandGroups(g, 0, level); })
+      }, "reexpand");
+    }
+    function expandGroups(g, i, level) {
+      if (!(g instanceof go.Group)) return;
+      g.isSubGraphExpanded = i < level;
+      g.memberParts.each(function (m) {
+        expandGroups(m, i + 1, level);
+      })
+    }
+
+    // save a model to and load a model from JSON text, displayed below the Diagram
+    function save() {
+      document.getElementById("mySavedModel").value = myDiagram.model.toJson();
+      myDiagram.isModified = false;
+    }
+    function load() {
+      myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
+    }
+
+
+    // 判断是否是内部变量
+    function isInner(v) {
+      if (v) {
+        return v.trim().startsWith('_');
+      } else {
+        return false;
+      }
+    }
+    // 保存模型数据到后台文件
+    function save() {
+      // 导出模型数据
+      modjson = myDiagram.model.toJson();
+      document.getElementById("mySavedModel").value = modjson;
+
+      var key = "{{ key }}";
+      var data = {
+        "method": "save",
+        "key": key,
+        "data": myDiagram.model.toJson(),
+      };
+      do_ajax("post", "/api/v1/test_design/", data, after_save);
+
+    } // End of save()
+
+    // 从json文件加载模型
+    function load() {
+      myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
+      myDiagram.select(myDiagram.nodes.first());
+    }
+
+    // 保存模型数据变更，先load 再 save
+    function load_save() {
+      load();
+      save();
+    }
+
+    // 首次加载页面load 数据，需要同时初始化 tabs
+    function init_load() {
+      load();
+      //reload_vb();
+      //reload_invb();
+      //reload_act();
+    }
+
+    function after_save(data) {
+      var success = "success"
+      if (data["status"] == success) {
+        //加载模型变量数据
+        //reload_vb();
+        //reload_invb();
+        //reload_act();
+
+        // 刷新模型inspector
+        inspector2.inspectObject(myDiagram.model.modelData);
+      }
+      do_msg(data)
+    }
+
+    function reload_vb() {
+      //加载模型变量数据
+      $('#vb').datagrid('loadData', {
+        'total': 1,
+        'rows': myDiagram.model.modelData.variable
+      });
+    }
+
+    function reload_invb() {
+
+      // 遍历模型，生成模型变量信息: 内部变量 tab
+      let invars = new Array();
+
+      // 遍历node.outputvariable
+      let nodes = myDiagram.model.nodeDataArray;
+      for (let i of nodes) {
+        let tmp = i.outputvariable;
+        if (!tmp || tmp.trim() == "") { //没有配置或空
+          continue;
+        }
+        let vs = i.outputvariable.split(',');
+        // 搜集所有变量并去重
+        for (let v in vs) {
+          if (!(isInner(vs[v]))) { //过滤掉输入变量-非内部变量
+            delete vs[v]; // 从vs删除这个变量
+            continue;
+          }
+          if ((vs[v].indexOf('=') != -1) && !(vs[v].endsWith('='))) {
+            let vals = vs[v].split('=');
+            for (let z of invars) {
+              if (vals[0].trim() == z.name.trim()) {
+                z.used.push('n' + i.text)
+                if (!(vals[1].trim() == z.value.trim())) {
+                  console.log("Warn:变量[" + vals[0] + "]值不一致 " + i.text + "[" + vals[1].trim() + "] VS " + z.used + "[" +
+                    z.value.trim() + "]");
+                }
+                delete vs[v];
+                break;
+              }
+            }
+          } else {
+            for (let z of invars) {
+              if (vs[v].trim() == z.name.trim()) {
+                z.used.push('n' + i.text)
+                delete vs[v];
+                break;
+              }
+            }
+          }
+        }
+
+        // 添加新增变量
+        for (let v of vs) {
+          if (!(isInner(v))) {
+            continue;
+          }
+          if ((v.indexOf('=') != -1) && !(v.endsWith('='))) {
+            let vals = v.split('=');
+            invars.push({
+              "name": vals[0].trim(),
+              "value": vals[1].trim(),
+              "used": ['n' + i.text]
+            });
+          } else {
+            invars.push({
+              "name": v.trim(),
+              "value": "",
+              "used": ['n' + i.text]
+            });
+          }
+
+        }
+
+      } // END For nodes
+
+      // 遍历links.parameters
+      let links = myDiagram.model.linkDataArray;
+      for (let i of links) {
+        let tmp = i.parameters;
+        if (!tmp || tmp.trim() == "") { //没有配置或空
+          continue;
+        }
+        let vs = i.parameters.split(',');
+        // 搜集所有变量并去重
+        for (let v in vs) {
+          if (!(isInner(vs[v]))) { //过滤掉输入变量-非内部变量
+            delete vs[v];
+            continue;
+          }
+          for (let z of invars) {
+            if (vs[v].trim() == z.name.trim()) {
+              z.used.push('l' + i.text)
+              delete vs[v];
+              break;
+            }
+          }
+        }
+
+        // 添加新增变量
+        for (let v of vs) {
+          if (!(isInner(v))) {
+            continue;
+          }
+          if (v.indexOf('=') != -1) {
+            console.log("参数错误:link " + i.text + " parameters 不允许出现'='!");
+          } else {
+            invars.push({
+              "name": v.trim(),
+              "value": "",
+              "used": ['l' + i.text]
+            });
+          }
+
+        }
+
+      } // END For Links
+
+      //$('#invb').datagrid('loadData', {
+      //  'total': 1,
+      //  'rows': invars
+      //});
+    }
+
+    function reload_act() {
+      let invars = new Array();
+      let links = new Array();
+      for (let i of myDiagram.model.linkDataArray) {
+        links.push(i);
+      }
+      // 遍历links.action
+      for (let i of links) {
+        if (!i.action || i.action.trim() == "") { //没有配置或空
+          continue;
+        }
+        let exists = false;
+        for (let z of invars) {
+          if (i.action.trim() == z.action.trim()) {
+            z.used.push(i.text);
+            z.parameters.push("(" + i.parameters + ")");
+            exists = true;
+            break;
+          }
+        }
+        if (!exists) {
+          invars.push({
+            "action": i.action.trim(),
+            "parameters": ["(" + i.parameters + ")"],
+            "used": [i.text]
+          });
+        }
+      }
+
+      $('#act').datagrid('loadData', {
+        'total': 1,
+        'rows': invars
+      });
+    }
+
+    function edit_var(win_id, ff_id) {
+      let data = $("#{0}".lym_format(ff_id)).serializeObject();
+
+      let curvars = myDiagram.model.modelData.variable;
+      for (let c of curvars) {
+        if (c.name == data.name) {
+          c.value = data.value;
+          c.description = data.description;
+          c.rule = data.rule;
+        }
+      }
+      close_win(win_id);
+      save();
+    }
+
+    function gen_casetemplate() {
+      var key = "{{ key }}";
+      var data = {
+        "method": "casetemplate",
+        "key": key,
+        "data": {
+          "detail": "enmu"
+        },
+      };
+      do_ajax("post", "/api/v1/test_design/", data, do_msg);
+    }
+
+    function gen_handcase() {
+      var key = "{{ key }}";
+      var data = {
+        "method": "handcase",
+        "key": key,
+        "data": {
+          "detail": "enmu"
+        },
+      };
+      do_ajax("post", "/api/v1/test_design/", data, do_msg);
+    }
+
+    function gen_autocase() {
+      var key = "{{ key }}";
+      var data = {
+        "method": "autocase",
+        "key": key,
+        "data": {
+          "detail": "enmu"
+        },
+      };
+      do_ajax("post", "/api/v1/test_design/", data, do_msg);
+    }
+  </script>
+</head>
+
+<body class="easyui-layout" onload="init()">
+  <div data-options="region:'center'">
+    <div class="easyui-layout" data-options="fit:true">
+      <div data-options="region:'north',split:true" style="height:60%">
+        <div style="width: 100%; display: flex; justify-content: space-between">
+          <div id="myPaletteDiv"
+            style="width: 130px; margin-right: 0px; background-color: whitesmoke; border: solid 1px black"></div>
+          <div id="myDiagramDiv" style="flex-grow: 1; height: 800px"></div>
+        </div>
+
+      </div>
+      <div data-options="region:'center'">
+        <div id="tt" data-options="tools:'#tab-tools', justified:true, selected:1" style="width:100%;height:100%">
+          <div title="模型" style="padding:5px">
+            <textarea id="mySavedModel" style="width:100%;height:100%">{{value}}</textarea>
+          </div>
+          <div title="输入变量" style="padding:2px">
+            <table id="vb"></table>
+          </div>
+          <div title="中间变量" style="padding:2px">
+            <table id="invb"></table>
+          </div>
+          <div title="Actions" style="padding:2px">
+            <table id="act"></table>
+          </div>
+          <div title="用例生成" style="padding:10px">
+            <p>1. 变量分为输入变量(常量) 和 内部生成变量（'_'符号开头）</p>
+            <p>2. 输入变量（parameter）需要初始化数据，不能被重新赋值，内部生成变量（outputvariable）系统内部赋值</p>
+            <p>3. parameter形式(不能带‘=’)：para ｜ _para </p>
+            <p>para需要初始化，_para由前面的node初始化</p>
+            <p>4. properties形式: prop | _prop == para | _prop1.lenth() > 5</p>
+            <p>prop表示存在或真，这里就是断言表达式</p>
+            <p>5. outputvariable形式(内部变量必须被赋值): varname | _varname=var |_varname=_var2</p>
+            <p>varname 表示输入变量，需要初始化，_varname表示系统生成变量需要赋值，如果没有，则认为'_'之后的为其值</p>
+            <p>6. 所有的可编辑属性都是字符串，标点符号请用英文逗号</p>
+          </div>
+        </div>
+        <div id="m_mod">
+          <div data-options="iconCls:'icon-refresh'" onclick="load_save()">刷新变更</div>
+        </div>
+        <div id="m_var">
+          <div id="EditVar" data-options="iconCls:'icon-edit'" onclick="editvar()">配置变量</div>
+        </div>
+        <div id="m_case">
+          <div onclick="gen_casetemplate()">生成用例模版</div>
+          <div onclick="gen_handcase()">生成手工用例</div>
+          <!-- <div data-options="iconCls:'icon-search'">Search</div> -->
+          <div onclick="gen_autocase()">生成自动化用例</div>
+        </div>
+        <div id="tab-tools">
+          <a href="#" id="SaveButton" class="easyui-linkbutton" data-options="disabled:false,iconCls:'icon-save'"
+            onclick="save()" style="margin-left: 5px;">保存模型</a>
+        </div>
+
+        <script>
+          $(function () {
+
+            var p = $('#tt').tabs().tabs('tabs')[4];
+            var mb = p.panel('options').tab.find('a.tabs-inner');
+            mb.menubutton({
+              menu: '#m_case',
+            }).click(function () {
+              $('#tt').tabs('select', 4);
+            });
+
+            var p = $('#tt').tabs().tabs('tabs')[0];
+            var mb = p.panel('options').tab.find('a.tabs-inner');
+            mb.menubutton({
+              menu: '#m_mod',
+            }).click(function () {
+              $('#tt').tabs('select', 0);
+            });
+
+            var p = $('#tt').tabs().tabs('tabs')[1];
+            var mb = p.panel('options').tab.find('a.tabs-inner');
+            mb.menubutton({
+              menu: '#m_var',
+            }).click(function () {
+              $('#tt').tabs('select', 1);
+            });
+
+          });
+
+          $('#vb').datagrid({
+            singleSelect: true,
+            //fitColumns: true,
+            rownumbers: true,
+            columns: [
+              [{
+                  field: 'name',
+                  title: '变量名(name)',
+                  width: 80
+                },
+                {
+                  field: 'value',
+                  title: '取值(value)',
+                  width: 150
+                },
+                {
+                  field: 'rule',
+                  title: '规则(rule)',
+                  width: 150
+                },
+                {
+                  field: 'used',
+                  title: '使用者(used)',
+                  width: 300
+                },
+                {
+                  field: 'description',
+                  title: '描述(description)',
+                  width: 150
+                },
+              ]
+            ]
+          });
+
+          $('#invb').datagrid({
+            singleSelect: true,
+            //fitColumns: true,
+            rownumbers: true,
+            columns: [
+              [{
+                  field: 'name',
+                  title: '变量名(name)',
+                  width: 100
+                },
+                {
+                  field: 'value',
+                  title: '取值(value)',
+                  width: 200
+                },
+                {
+                  field: 'used',
+                  title: '使用者(used)',
+                  width: 350
+                },
+              ]
+            ]
+          });
+
+          $('#act').datagrid({
+            singleSelect: true,
+            //fitColumns: true,
+            rownumbers: true,
+            columns: [
+              [{
+                  field: 'action',
+                  title: 'Action Name',
+                  width: 100
+                },
+                {
+                  field: 'parameters', // (a, b) (a,b,c)
+                  title: '参数组合情况(parameters)',
+                  width: 200
+                },
+                {
+                  field: 'used',
+                  title: '使用者(used)',
+                  width: 350
+                },
+              ]
+            ]
+          });
+
+          // 切换tab页面同步刷新数据,否则无法显示更新的数据
+          $('#tt').tabs({
+            onSelect: function (title) {
+              if (title == '输入变量') {
+                $('#vb').datagrid('resize');
+              }
+              if (title == '中间变量') {
+                $('#invb').datagrid('resize');
+              }
+              if (title == 'Actions') {
+                $('#act').datagrid('resize');
+              }
+            }
+          });
+
+          function editvar() {
+            var row = $('#vb').datagrid('getSelected');
+            if (row) {
+              $("#edit_var_ff input#varname").textbox("setValue", row.name);
+              $("#edit_var_ff input#vardesc").textbox("setValue", row.description);
+              $("#edit_var_ff input#varvalue").textbox("setValue", row.value);
+              $("#edit_var_ff input#varrule").textbox("setValue", row.rule);
+              open_win('edit_var');
+            } else {
+              show_msg("Alert", "Tip：请先选择一个变量～");
+            }
+          }
+        </script>
+
+      </div> //End Center
+    </div>
+  </div>
+  
+  <div data-options="region:'east',split:true,hideCollapsedContent:false" title="属性配置"
+    style="width:25%;max-width:400px;padding:5px 10px;">
+    <div style="margin-bottom:5px">
+      <span style="display: inline-block; vertical-align: top;">
+        Selected Part:<br />
+        <div id="elementInspector" class="inspector" style="width: 100%;"> </div><br />
+        Model.modelData:<br />
+        <div id="modelInspector" class="inspector" style="width: 100%;"> </div><br />
+        <p>展开层级控制：</p>
+        <input id="levelSlider" type="range" min="0" max="5" value="3">
+      </span>
+    </div>
+  </div>
+
+  <!-- edit var -->
+  <div id="edit_var" class="easyui-window" title="编辑变量"
+    data-options="modal:true,closed:true,minimizable:false,maximizable:false,collapsible:false"
+    style="width:320px;height:300px;padding:10px;">
+    <form id="edit_var_ff" method="post">
+      <div style="margin-bottom:10px">
+        <input class="easyui-textbox" id="varname" name="name" label="变量名" labelPosition="left" style="width:100%"
+          data-options="required:true" readonly>
+      </div>
+      <div style="margin-bottom:10px">
+        <input class="easyui-textbox" id="vardesc" name="description" label="描述" labelPosition="left" style="width:100%"
+          data-options="required:true">
+      </div>
+      <div style="margin-bottom:10px">
+        <input class="easyui-textbox" id="varvalue" name="value" label="取值" labelPosition="left" style="width:100%"
+          data-options="required:true">
+      </div>
+      <div style="margin-bottom:10px">
+        <input class="easyui-textbox" id="varrule" name="rule" label="规则" labelPosition="left" style="width:100%"
+          data-options="required:true">
+      </div>
+    </form>
+    <div style="text-align:right;padding:5px 0">
+      <a href="javascript:void(0)" class="easyui-linkbutton" onclick="close_win('edit_var')"
+        style="width:60px">Cancle</a>
+      <a href="javascript:void(0)" class="easyui-linkbutton" onclick="edit_var('edit_var', 'edit_var_ff')"
+        style="width:60px">Save</a>
+    </div>
+  </div>
+  <!-- end -->
+
+</body>
+
+</html>

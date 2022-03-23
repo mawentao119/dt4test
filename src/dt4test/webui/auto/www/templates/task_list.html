@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>uniRobot - RobotFramework Web UI</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='lib/easyui/themes/icon.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='lib/easyui/themes/bootstrap/easyui.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/auto.css') }}">
+
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+        <style type="text/css">
+            .lines-no .datagrid-body td{
+                border-right:1px dotted transparent;
+                border-bottom:1px dotted transparent;
+            }
+        </style>
+    </head>
+    <body class="easyui-layout" style="padding:10">
+
+        <div data-options="region:'center'" style="padding: 5px 5px 5px 5px">
+            <table id="task_list" class="easyui-datagrid" style="width:100%;height:auto;"
+                    data-options="fit:true, singleSelect:true,
+                        fitColumns:true,
+                        url:'/api/v1/task_list?method=get_tasklist&project={{ project }}',
+                        method:'get',
+                        toolbar: toolbar"
+                    >
+                <thead>
+                    <tr>
+                        <th data-options="field:'status',align:'center' , halign: 'center',formatter:show_img">状态</th>
+                        <th data-options="field:'name'">名称</th>
+                        <th data-options="field:'driver'">触发</th>
+                        <th data-options="field:'success',align:'center' , halign: 'center'">成功</th>
+                        <th data-options="field:'fail',align:'center' , halign: 'center'">失败</th>
+                        <th data-options="field:'starttime',align:'center' , halign: 'center'">开始时间</th>
+                        <th data-options="field:'endtime',align:'center' , halign: 'center'">结束时间</th>
+                        <th data-options="field:'elapsedtime',align:'center' , halign: 'center'">耗时(ms)</th>
+                        <th data-options="field:'note',align:'center' , halign: 'center'">信息</th>
+                        <!--<th data-options="field:'cron'">cron表达式</th>
+                        <th data-options="field:'boolean'"></th>-->
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        
+        <div id="add_schedulejob" class="easyui-window" title="新增调度任务"
+                 data-options="modal:true,closed:true,minimizable:false,maximizable:false,collapsible:false"
+                 style="width:530px;height:450px;padding:10px;">
+                <form id="add_schedulejob_ff" method="post">
+                    <div style="margin-bottom:10px">
+                        <input id="task_name", name="task_name" class="easyui-textbox" data-options="label:'任务名称:',labelPosition:'left',editable:false " style="width:80%;">
+                    </div>
+                    <div style="margin-bottom:10px">
+                    <p>选择调度类型: 配置参见<a href="https://apscheduler.readthedocs.io/en/stable/userguide.html" target="_blank">APScheduler</a></p>
+                        <select id="schedule_type" class="easyui-combobox" name="schedule_type" style="width:200px;" >
+                            <option value="interval">间隔调度(interval)</option>
+                            <option value="cron">周期调度(corn)</option>
+                            <option value="date">定时调度(date)</option>
+                        </select>
+                    </div>
+
+                    <div id="p" class="easyui-panel" style="width:450px;height:100px;padding:10px;">
+                        <table border="0">
+                          <tr>
+                            <th align="center">年</th><th align="center">月</th><th align="center">日</th><th align="center">时</th><th align="center">分</th><th align="center">秒</th>
+                          </tr>
+                          <tr>
+                            <td><input id="year" name="year" class="easyui-textbox" style="width:80%;"></td>
+                            <td><input id="mon" name="mon" class="easyui-textbox" style="width:80%;"></td>
+                              <td><input id="day" name="day" class="easyui-textbox" style="width:80%;"></td>
+                            <td><input id="hour" name="hour" class="easyui-textbox" style="width:80%;"></td>
+                              <td><input id="min" name="min" class="easyui-textbox" style="width:80%;"></td>
+                            <td><input id="sec" name="sec" class="easyui-textbox" style="width:80%;"></td>
+                          </tr>
+                        </table>
+                    </div>
+
+                    <div id="p2" class="easyui-panel" style="width:450px;height:100px;padding:10px;margin-top:10px">
+                        <table border="0">
+                          <tr>
+                            <th align="center">第几周</th><th align="center">每周几</th><th align="center">开始日期</th><th align="center">结束日期</th>
+                          </tr>
+                          <tr>
+                            <td><input id="week" name="week" class="easyui-textbox" style="width:90%;"></td>
+                            <td><input id="day_of_week" name="day_of_week" class="easyui-textbox" style="width:90%;"></td>
+                              <td><input id="start_date" name="start_date" class="easyui-textbox" style="width:90%;"></td>
+                            <td><input id="end_date" name="end_date" class="easyui-textbox" style="width:90%;"></td>
+
+                          </tr>
+                        </table>
+                    </div>
+
+                </form>
+                <div style="text-align:right;padding:5px 0">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="close_win('add_schedulejob')" style="width:60px">Cancle</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="add_schedulejob('add_schedulejob', 'add_schedulejob_ff')" style="width:60px">Add</a>
+                </div>
+            </div>
+
+
+        <script src="{{ url_for('static', filename='lib/easyui/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='lib/easyui/jquery.easyui.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='lib/auto.js') }}"></script>
+        <SCRIPT>
+            function schedule_job(win_id, ff_id, method) {
+                if (method == "add_schedulejob") {
+                    clear_form(ff_id);
+                    var row = $('#task_list').datagrid('getSelected');
+                    let v = row.name; //"<a href='/view_report/Demo_Project/36_log' target='_blank'>03Variables_#36_log</a>"
+                    let n = v.split('>')[1].split('<')[0]; //"03Variables_#36_log" -> suitename@id
+                    let name = n          // n.slice(0,-4); //"03Variables_#36"
+                    $("#task_name").textbox("setValue", name);
+                    $('#schedule_type').combobox('setValue', 'interval');
+                } else if (method == "edit") {
+
+                }
+                open_win(win_id);
+            }
+
+            function add_schedulejob(win_id, ff_id) {
+                var data = $("#{0}".lym_format(ff_id)).serializeObject();
+                data["method"] = "add_schedulejob";
+
+                do_ajax('post', '/api/v1/task_list/', data, do_msg);
+
+                close_win(win_id);
+            }
+        </SCRIPT>
+        <SCRIPT type="text/javascript">
+            $(document).ready(function(){
+               $('#task_list').datagrid('getPanel').removeClass('lines-both lines-no lines-right lines-bottom').addClass('lines-no');
+            });
+            var toolbar = [
+                {
+                    text:'刷新',
+                    iconCls:'icon-refresh',
+                    handler:function(){
+                        $("#task_list").datagrid('reload');
+                    }
+			    }, '-',
+			    {
+			        text:'重跑',
+                    iconCls:'icon-run',
+                    handler:function(){
+                        var row = $('#task_list').datagrid('getSelected');
+                        if(!row){
+                            show_msg("Alert", "请先选择一个任务！");
+                        }
+                        else{
+                            $.messager.confirm('Alert', '确定要重新运行该任务吗?', function(r){
+                                if (r){
+                                    var data ={"method": "rerun", "category": "project", "project": "{{ project }}", "task_no": row.task_no };
+                                    do_ajax('post',
+                                    '/api/v1/task/',
+                                    data,
+                                    function(r){do_msg(r); $("#task_list").datagrid('reload');});
+                                }
+                            });
+
+                        }
+                    }
+			    }, '-',
+			    {
+			        text:'运行失败用例',
+                    iconCls:'icon-run',
+                    handler:function(){
+                        var row = $('#task_list').datagrid('getSelected');
+                        if(!row){
+                            show_msg("Alert", "请先选择一条记录！");
+                        }
+                        else{
+                            $.messager.confirm('Alert', '确定要运行该任务的失败用例吗?', function(r){
+                                if (r){
+                                    var data ={"method": "rerunfail", "category": "project", "project": "{{ project }}", "task_no": row.task_no };
+                                    do_ajax('post',
+                                        '/api/v1/task/',
+                                        data,
+                                        function(r){do_msg(r); $("#task_list").datagrid('reload');});
+                                }
+                            });
+
+                        }
+                    }
+			    }, '-',
+			    {
+			        text:'停止',
+                    iconCls:'icon-stop',
+                    handler:function(){
+                        var row = $('#task_list').datagrid('getSelected');
+                        if(!row){
+                            show_msg("Alert", "请先选择一条记录！");
+                        }
+                        else{
+                            $.messager.confirm('Alert', '确定要停止任务吗?', function(r){
+                                if (r){
+                                    var data ={"method": "stop", "category": "project", "project": "{{ project }}", "task_no": row.task_no };
+                                    do_ajax('post',
+                                    '/api/v1/task/',
+                                    data,
+                                    function(r){do_msg(r); $("#task_list").datagrid('reload');});
+                                }
+                            });
+
+                        }
+                    }
+			    }
+			    , '-',
+			    {
+			        text:'删除',
+                    iconCls:'icon-remove',
+                    handler:function(){
+                        var row = $('#task_list').datagrid('getSelected');
+                        if(!row){
+                            show_msg("Alert", "请先选择一条记录！");
+                        }
+                        else{
+                            $.messager.confirm('Alert', '确定要删除任务记录吗?', function(r){
+                                if (r){
+                                    var data ={"method": "delete", "category": "project", "project": "{{ project }}", "task_no": row.task_no };
+                                    do_ajax('post',
+                                            '/api/v1/task/',
+                                            data,
+                                            function(r){do_msg(r); $("#task_list").datagrid('reload');});
+                                }
+                            });
+
+                        }
+                    }
+			    }, '-',
+			    {
+			        text:'配置成调度任务',
+                    iconCls:'icon-schedule_mng',
+                    handler:function(){
+                        var row = $('#task_list').datagrid('getSelected');
+                        if(row){
+                            schedule_job("add_schedulejob", "add_schedulejob_ff", "add_schedulejob");
+                        }
+                        else{
+                            show_msg("Alert", "请先选择一个任务！");
+                        }
+                    }
+			    }
+			 ];
+        </SCRIPT>
+    </body>
+</html>

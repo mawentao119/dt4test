@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="process" type="RESOURCE" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:05Z" specversion="3" source="../../resource/process.resource" lineno="1">
+<version/>
+<doc>Documentation for resource file ``process``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="分割命令行" lineno="116">
+<arguments repr="args, escaping=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="args">
+<name>args</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="escaping=${false}">
+<name>escaping</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Process：Split Command Line</doc>
+<shortdoc>封装Process：Split Command Line</shortdoc>
+</kw>
+<kw name="切换进程" lineno="121">
+<arguments repr="handle">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="handle">
+<name>handle</name>
+</arg>
+</arguments>
+<doc>封装Process：Switch Process</doc>
+<shortdoc>封装Process：Switch Process</shortdoc>
+</kw>
+<kw name="取得进程ID" lineno="60">
+<arguments repr="handle=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Process：Get Process Id</doc>
+<shortdoc>封装Process：Get Process Id</shortdoc>
+</kw>
+<kw name="取得进程实例" lineno="69">
+<arguments repr="handle=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Process：Get Process Object</doc>
+<shortdoc>封装Process：Get Process Object</shortdoc>
+</kw>
+<kw name="取得进程运行结果" lineno="78">
+<arguments repr="handle=${None}, rc=${false}, stdout=${false}, stderr=${false}, stdout_path=${false}, stderr_path=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="rc=${false}">
+<name>rc</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="stdout=${false}">
+<name>stdout</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="stderr=${false}">
+<name>stderr</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="stdout_path=${false}">
+<name>stdout_path</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="stderr_path=${false}">
+<name>stderr_path</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Process：Get Process Result</doc>
+<shortdoc>封装Process：Get Process Result</shortdoc>
+</kw>
+<kw name="后台执行" lineno="55">
+<arguments repr="command, *arguments, **configuration">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="command">
+<name>command</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*arguments">
+<name>arguments</name>
+</arg>
+<arg kind="VAR_NAMED" required="false" repr="**configuration">
+<name>configuration</name>
+</arg>
+</arguments>
+<doc>封装ProcessProcess：Start Process</doc>
+<shortdoc>封装ProcessProcess：Start Process</shortdoc>
+</kw>
+<kw name="后台执行进程" lineno="47">
+<arguments repr="command, *arguments, **configuration">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="command">
+<name>command</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*arguments">
+<name>arguments</name>
+</arg>
+<arg kind="VAR_NAMED" required="false" repr="**configuration">
+<name>configuration</name>
+</arg>
+</arguments>
+<doc>封装Process：Start Process</doc>
+<shortdoc>封装Process：Start Process</shortdoc>
+</kw>
+<kw name="后台运行" lineno="51">
+<arguments repr="command, *arguments, **configuration">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="command">
+<name>command</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*arguments">
+<name>arguments</name>
+</arg>
+<arg kind="VAR_NAMED" required="false" repr="**configuration">
+<name>configuration</name>
+</arg>
+</arguments>
+<doc>封装Process：Start Process</doc>
+<shortdoc>封装Process：Start Process</shortdoc>
+</kw>
+<kw name="向进程发送信号量" lineno="111">
+<arguments repr="signal, handle=${None}, group=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="signal">
+<name>signal</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="group=${false}">
+<name>group</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Process：Send Signal To Process</doc>
+<shortdoc>封装Process：Send Signal To Process</shortdoc>
+</kw>
+<kw name="执行取得输出" lineno="9">
+<arguments repr="command">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="command">
+<name>command</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Run</doc>
+<shortdoc>封装OperatingSystem：Run</shortdoc>
+</kw>
+<kw name="执行取得返回值" lineno="22">
+<arguments repr="command">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="command">
+<name>command</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Run And Return Rc</doc>
+<shortdoc>封装OperatingSystem：Run And Return Rc</shortdoc>
+</kw>
+<kw name="执行取得返回值和输出" lineno="31">
+<arguments repr="command">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="command">
+<name>command</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Run And Return Rc And Output</doc>
+<shortdoc>封装OperatingSystem：Run And Return Rc And Output</shortdoc>
+</kw>
+<kw name="执行命令" lineno="41">
+<arguments repr="command, *arguments, **configuration">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="command">
+<name>command</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*arguments">
+<name>arguments</name>
+</arg>
+<arg kind="VAR_NAMED" required="false" repr="**configuration">
+<name>configuration</name>
+</arg>
+</arguments>
+<doc>封装Process：Run Process
+返回result对象：http://robotframework.org/robotframework/latest/libraries/Process.html#Result%20object</doc>
+<shortdoc>封装Process：Run Process 返回result对象：http://robotframework.org/robotframework/latest/libraries/Process.html#Result%20object</shortdoc>
+</kw>
+<kw name="执行获得输出" lineno="13">
+<arguments repr="command">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="command">
+<name>command</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Run</doc>
+<shortdoc>封装OperatingSystem：Run</shortdoc>
+</kw>
+<kw name="执行获得返回值" lineno="18">
+<arguments repr="command">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="command">
+<name>command</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Run And Return Rc</doc>
+<shortdoc>封装OperatingSystem：Run And Return Rc</shortdoc>
+</kw>
+<kw name="执行获得返回值和输出" lineno="27">
+<arguments repr="command">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="command">
+<name>command</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Run And Return Rc And Output</doc>
+<shortdoc>封装OperatingSystem：Run And Return Rc And Output</shortdoc>
+</kw>
+<kw name="执行进程" lineno="36">
+<arguments repr="command, *arguments, **configuration">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="command">
+<name>command</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*arguments">
+<name>arguments</name>
+</arg>
+<arg kind="VAR_NAMED" required="false" repr="**configuration">
+<name>configuration</name>
+</arg>
+</arguments>
+<doc>封装Process：Run Process
+返回result对象：http://robotframework.org/robotframework/latest/libraries/Process.html#Result%20object</doc>
+<shortdoc>封装Process：Run Process 返回result对象：http://robotframework.org/robotframework/latest/libraries/Process.html#Result%20object</shortdoc>
+</kw>
+<kw name="等待进程执行结束" lineno="140">
+<arguments repr="handle=${None}, timeout=${None}, on_timeout=continue">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="timeout=${None}">
+<name>timeout</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="on_timeout=continue">
+<name>on_timeout</name>
+<default>continue</default>
+</arg>
+</arguments>
+<doc>封装Process：Wait For Process</doc>
+<shortdoc>封装Process：Wait For Process</shortdoc>
+</kw>
+<kw name="等待进程结束" lineno="136">
+<arguments repr="handle=${None}, timeout=${None}, on_timeout=continue">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="timeout=${None}">
+<name>timeout</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="on_timeout=continue">
+<name>on_timeout</name>
+<default>continue</default>
+</arg>
+</arguments>
+<doc>封装Process：Wait For Process</doc>
+<shortdoc>封装Process：Wait For Process</shortdoc>
+</kw>
+<kw name="终止所有进程" lineno="126">
+<arguments repr="kill=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="kill=${false}">
+<name>kill</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Process：Terminate All Processes</doc>
+<shortdoc>封装Process：Terminate All Processes</shortdoc>
+</kw>
+<kw name="终止进程" lineno="131">
+<arguments repr="handle=${None}, kill=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="kill=${false}">
+<name>kill</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Process：Terminate Process</doc>
+<shortdoc>封装Process：Terminate Process</shortdoc>
+</kw>
+<kw name="获取进程ID" lineno="64">
+<arguments repr="handle=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Process：Get Process Id</doc>
+<shortdoc>封装Process：Get Process Id</shortdoc>
+</kw>
+<kw name="获取进程实例" lineno="73">
+<arguments repr="handle=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Process：Get Process Object</doc>
+<shortdoc>封装Process：Get Process Object</shortdoc>
+</kw>
+<kw name="获取进程运行结果" lineno="82">
+<arguments repr="handle=${None}, rc=${false}, stdout=${false}, stderr=${false}, stdout_path=${false}, stderr_path=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="rc=${false}">
+<name>rc</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="stdout=${false}">
+<name>stdout</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="stderr=${false}">
+<name>stderr</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="stdout_path=${false}">
+<name>stdout_path</name>
+<default>${false}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="stderr_path=${false}">
+<name>stderr_path</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装Process：Get Process Result</doc>
+<shortdoc>封装Process：Get Process Result</shortdoc>
+</kw>
+<kw name="进程应该在运行" lineno="101">
+<arguments repr="handle=${None}, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Process：Process Should Be Running</doc>
+<shortdoc>封装Process：Process Should Be Running</shortdoc>
+</kw>
+<kw name="进程应该已停止" lineno="106">
+<arguments repr="handle=${None}, msg=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="msg=${None}">
+<name>msg</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Process：Process Should Be Stopped</doc>
+<shortdoc>封装Process：Process Should Be Stopped</shortdoc>
+</kw>
+<kw name="进程是否在运行" lineno="87">
+<arguments repr="handle=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Process：Is Process Running</doc>
+<shortdoc>封装Process：Is Process Running</shortdoc>
+</kw>
+<kw name="进程是否运行" lineno="91">
+<arguments repr="handle=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="handle=${None}">
+<name>handle</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装Process：Is Process Running</doc>
+<shortdoc>封装Process：Is Process Running</shortdoc>
+</kw>
+<kw name="连接命令行" lineno="96">
+<arguments repr="*args">
+<arg kind="VAR_POSITIONAL" required="false" repr="*args">
+<name>args</name>
+</arg>
+</arguments>
+<doc>封装Process：Join Command Line</doc>
+<shortdoc>封装Process：Join Command Line</shortdoc>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

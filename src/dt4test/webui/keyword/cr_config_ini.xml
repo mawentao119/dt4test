@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="config_ini" type="RESOURCE" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:04Z" specversion="3" source="../../resource/config_ini.resource" lineno="1">
+<version/>
+<doc>Documentation for resource file ``config_ini``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="取得配置项" lineno="15">
+<arguments repr="file, section, item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="file">
+<name>file</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="section">
+<name>section</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc>封装lib/config_ini.py</doc>
+<shortdoc>封装lib/config_ini.py</shortdoc>
+</kw>
+<kw name="设置配置项" lineno="9">
+<arguments repr="file, section, item, value">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="file">
+<name>file</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="section">
+<name>section</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+</arguments>
+<doc>封装lib/config_ini.py</doc>
+<shortdoc>封装lib/config_ini.py</shortdoc>
+</kw>
+<kw name="读取配置项" lineno="22">
+<arguments repr="file, section, item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="file">
+<name>file</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="section">
+<name>section</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc>封装lib/config_ini.py</doc>
+<shortdoc>封装lib/config_ini.py</shortdoc>
+</kw>
+<kw name="配置项应该不存在" lineno="36">
+<arguments repr="file, section, item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="file">
+<name>file</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="section">
+<name>section</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc>封装lib/config_ini.py</doc>
+<shortdoc>封装lib/config_ini.py</shortdoc>
+</kw>
+<kw name="配置项应该存在" lineno="30">
+<arguments repr="file, section, item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="file">
+<name>file</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="section">
+<name>section</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc>封装lib/config_ini.py</doc>
+<shortdoc>封装lib/config_ini.py</shortdoc>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

@@ -1,2 +1,13 @@
-pytest
+Flask>=2.0.1
+locust>=2.1.0
+Flask_APScheduler>=1.12.2
+Flask_RESTful>=0.3.9
+markdown>=3.2.2
+robotframework>=4.1
+gitpython
+openpyxl
 jmespath
+# ansible>=4.3.0
+# ansible-runner>=2.0.1
+
+pytest>=6.2.4

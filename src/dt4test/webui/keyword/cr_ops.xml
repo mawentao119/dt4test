@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="ops" type="RESOURCE" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:04Z" specversion="3" source="../../resource/ops.resource" lineno="1">
+<version/>
+<doc>Documentation for resource file ``ops``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="Touch" lineno="239">
+<arguments repr="path">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Touch</doc>
+<shortdoc>封装OperatingSystem：Touch</shortdoc>
+</kw>
+<kw name="分割扩展名" lineno="225">
+<arguments repr="path">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Split Extension</doc>
+<shortdoc>封装OperatingSystem：Split Extension</shortdoc>
+</kw>
+<kw name="创建二进制文件" lineno="62">
+<arguments repr="path, content">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="content">
+<name>content</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Create Binary File</doc>
+<shortdoc>封装OperatingSystem：Create Binary File</shortdoc>
+</kw>
+<kw name="创建文件" lineno="44">
+<arguments repr="path, content, encoding=UTF-8">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="content">
+<name>content</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="encoding=UTF-8">
+<name>encoding</name>
+<default>UTF-8</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Create File</doc>
+<shortdoc>封装OperatingSystem：Create File</shortdoc>
+</kw>
+<kw name="创建目录" lineno="76">
+<arguments repr="path">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Create Directory</doc>
+<shortdoc>封装OperatingSystem：Create Directory</shortdoc>
+</kw>
+<kw name="删除多个文件" lineno="109">
+<arguments repr="*paths">
+<arg kind="VAR_POSITIONAL" required="false" repr="*paths">
+<name>paths</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Remove Files</doc>
+<shortdoc>封装OperatingSystem：Remove Files</shortdoc>
+</kw>
+<kw name="删除文件" lineno="104">
+<arguments repr="path">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Remove File</doc>
+<shortdoc>封装OperatingSystem：Remove File</shortdoc>
+</kw>
+<kw name="删除环境变量" lineno="18">
+<arguments repr="*names">
+<arg kind="VAR_POSITIONAL" required="false" repr="*names">
+<name>names</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Remove Environment Variable</doc>
+<shortdoc>封装OperatingSystem：Remove Environment Variable</shortdoc>
+</kw>
+<kw name="删除目录" lineno="85">
+<arguments repr="path, recursive=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="recursive=${false}">
+<name>recursive</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Remove Directory</doc>
+<shortdoc>封装OperatingSystem：Remove Directory</shortdoc>
+</kw>
+<kw name="取得二进制文件内容" lineno="71">
+<arguments repr="path">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Get Binary File</doc>
+<shortdoc>封装OperatingSystem：Get Binary File</shortdoc>
+</kw>
+<kw name="取得文件内容" lineno="53">
+<arguments repr="path, encoding=UTF-8, encoding_errors=strict">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="encoding=UTF-8">
+<name>encoding</name>
+<default>UTF-8</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="encoding_errors=strict">
+<name>encoding_errors</name>
+<default>strict</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Get File</doc>
+<shortdoc>封装OperatingSystem：Get File</shortdoc>
+</kw>
+<kw name="取得文件大小" lineno="140">
+<arguments repr="path">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Get File Size</doc>
+<shortdoc>封装OperatingSystem：Get File Size</shortdoc>
+</kw>
+<kw name="取得环境变量值" lineno="23">
+<arguments repr="name, default=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="name">
+<name>name</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="default=${None}">
+<name>default</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Get Environment Variable</doc>
+<shortdoc>封装OperatingSystem：Get Environment Variable</shortdoc>
+</kw>
+<kw name="取得环境变量列表" lineno="32">
+<arguments repr="">
+</arguments>
+<doc>封装OperatingSystem：Get Environment Variables</doc>
+<shortdoc>封装OperatingSystem：Get Environment Variables</shortdoc>
+</kw>
+<kw name="取得目录下的内容" lineno="191">
+<arguments repr="path, pattern=${None}, absolute=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="pattern=${None}">
+<name>pattern</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="absolute=${false}">
+<name>absolute</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：List Directory</doc>
+<shortdoc>封装OperatingSystem：List Directory</shortdoc>
+</kw>
+<kw name="取得目录下的文件" lineno="182">
+<arguments repr="path, pattern=${None}, absolute=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="pattern=${None}">
+<name>pattern</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="absolute=${false}">
+<name>absolute</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：List Files In Directory</doc>
+<shortdoc>封装OperatingSystem：List Files In Directory</shortdoc>
+</kw>
+<kw name="取得目录下的目录" lineno="173">
+<arguments repr="path, pattern=${None}, absolute=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="pattern=${None}">
+<name>pattern</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="absolute=${false}">
+<name>absolute</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：List Directories In Directory</doc>
+<shortdoc>封装OperatingSystem：List Directories In Directory</shortdoc>
+</kw>
+<kw name="拆分扩展名" lineno="229">
+<arguments repr="path">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Split Extension</doc>
+<shortdoc>封装OperatingSystem：Split Extension</shortdoc>
+</kw>
+<kw name="拆分路径" lineno="234">
+<arguments repr="path">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Split Path</doc>
+<shortdoc>封装OperatingSystem：Split Path</shortdoc>
+</kw>
+<kw name="拷贝单个文件" lineno="99">
+<arguments repr="src, des">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="src">
+<name>src</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="des">
+<name>des</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Copy File</doc>
+<shortdoc>封装OperatingSystem：Copy File</shortdoc>
+</kw>
+<kw name="拷贝多个文件" lineno="115">
+<arguments repr="*srcs_to_des">
+<arg kind="VAR_POSITIONAL" required="false" repr="*srcs_to_des">
+<name>srcs_to_des</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Copy Files</doc>
+<shortdoc>封装OperatingSystem：Copy Files</shortdoc>
+</kw>
+<kw name="拷贝文件" lineno="95">
+<arguments repr="src, des">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="src">
+<name>src</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="des">
+<name>des</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Copy File</doc>
+<shortdoc>封装OperatingSystem：Copy File</shortdoc>
+</kw>
+<kw name="拷贝目录" lineno="90">
+<arguments repr="src, des">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="src">
+<name>src</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="des">
+<name>des</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Copy Directory</doc>
+<shortdoc>封装OperatingSystem：Copy Directory</shortdoc>
+</kw>
+<kw name="搜索文件" lineno="158">
+<arguments repr="path, pattern, encoding=UTF-8, encoding_errors=strict">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="pattern">
+<name>pattern</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="encoding=UTF-8">
+<name>encoding</name>
+<default>UTF-8</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="encoding_errors=strict">
+<name>encoding_errors</name>
+<default>strict</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Grep File</doc>
+<shortdoc>封装OperatingSystem：Grep File</shortdoc>
+</kw>
+<kw name="新建二进制文件" lineno="66">
+<arguments repr="path, content">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="content">
+<name>content</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Create Binary File</doc>
+<shortdoc>封装OperatingSystem：Create Binary File</shortdoc>
+</kw>
+<kw name="新建文件" lineno="48">
+<arguments repr="path, content, encoding=UTF-8">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="content">
+<name>content</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="encoding=UTF-8">
+<name>encoding</name>
+<default>UTF-8</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Create File</doc>
+<shortdoc>封装OperatingSystem：Create File</shortdoc>
+</kw>
+<kw name="新建目录" lineno="80">
+<arguments repr="path">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Create Directory</doc>
+<shortdoc>封装OperatingSystem：Create Directory</shortdoc>
+</kw>
+<kw name="标准化路径" lineno="220">
+<arguments repr="path, case_normalize=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="case_normalize=${false}">
+<name>case_normalize</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Normalize Path</doc>
+<shortdoc>封装OperatingSystem：Normalize Path</shortdoc>
+</kw>
+<kw name="清空目录" lineno="135">
+<arguments repr="path">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Empty Directory</doc>
+<shortdoc>封装OperatingSystem：Empty Directory</shortdoc>
+</kw>
+<kw name="生成路径列表" lineno="168">
+<arguments repr="base, *pahts">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="base">
+<name>base</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*pahts">
+<name>pahts</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Join Paths</doc>
+<shortdoc>封装OperatingSystem：Join Paths</shortdoc>
+</kw>
+<kw name="移动多个文件" lineno="215">
+<arguments repr="*srcs_to_desdir">
+<arg kind="VAR_POSITIONAL" required="false" repr="*srcs_to_desdir">
+<name>srcs_to_desdir</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Move Files</doc>
+<shortdoc>封装OperatingSystem：Move Files</shortdoc>
+</kw>
+<kw name="移动文件" lineno="210">
+<arguments repr="src, des">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="src">
+<name>src</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="des">
+<name>des</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Move File</doc>
+<shortdoc>封装OperatingSystem：Move File</shortdoc>
+</kw>
+<kw name="移动目录" lineno="205">
+<arguments repr="src, des">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="src">
+<name>src</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="des">
+<name>des</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Move Directory</doc>
+<shortdoc>封装OperatingSystem：Move Directory</shortdoc>
+</kw>
+<kw name="等待创建完成" lineno="244">
+<arguments repr="path, timeout=60 s">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="timeout=60 s">
+<name>timeout</name>
+<default>60 s</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Wait Until Created</doc>
+<shortdoc>封装OperatingSystem：Wait Until Created</shortdoc>
+</kw>
+<kw name="等待删除完成" lineno="249">
+<arguments repr="path, timeout=60 s">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="timeout=60 s">
+<name>timeout</name>
+<default>60 s</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Wait Until Removed</doc>
+<shortdoc>封装OperatingSystem：Wait Until Removed</shortdoc>
+</kw>
+<kw name="统计文件和目录数" lineno="130">
+<arguments repr="path, pattern=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="pattern=${None}">
+<name>pattern</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Count Items In Directory</doc>
+<shortdoc>封装OperatingSystem：Count Items In Directory</shortdoc>
+</kw>
+<kw name="统计目录下的文件数" lineno="125">
+<arguments repr="path, pattern=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="pattern=${None}">
+<name>pattern</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Count Files In Directory</doc>
+<shortdoc>封装OperatingSystem：Count Files In Directory</shortdoc>
+</kw>
+<kw name="统计目录下的目录数" lineno="120">
+<arguments repr="path, pattern=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="pattern=${None}">
+<name>pattern</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Count Directories In Directory</doc>
+<shortdoc>封装OperatingSystem：Count Directories In Directory</shortdoc>
+</kw>
+<kw name="获取修改时间" lineno="149">
+<arguments repr="path">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Get Modified Time</doc>
+<shortdoc>封装OperatingSystem：Get Modified Time</shortdoc>
+</kw>
+<kw name="获取文件内容" lineno="57">
+<arguments repr="path, encoding=UTF-8, encoding_errors=strict">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="encoding=UTF-8">
+<name>encoding</name>
+<default>UTF-8</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="encoding_errors=strict">
+<name>encoding_errors</name>
+<default>strict</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Get File</doc>
+<shortdoc>封装OperatingSystem：Get File</shortdoc>
+</kw>
+<kw name="获取文件大小" lineno="144">
+<arguments repr="path">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Get File Size</doc>
+<shortdoc>封装OperatingSystem：Get File Size</shortdoc>
+</kw>
+<kw name="获取环境变量值" lineno="27">
+<arguments repr="name, default=${None}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="name">
+<name>name</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="default=${None}">
+<name>default</name>
+<default>${None}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Get Environment Variable</doc>
+<shortdoc>封装OperatingSystem：Get Environment Variable</shortdoc>
+</kw>
+<kw name="获取环境变量列表" lineno="35">
+<arguments repr="">
+</arguments>
+<doc>封装OperatingSystem：Get Environment Variables</doc>
+<shortdoc>封装OperatingSystem：Get Environment Variables</shortdoc>
+</kw>
+<kw name="获取目录下的内容" lineno="195">
+<arguments repr="path, pattern=${None}, absolute=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="pattern=${None}">
+<name>pattern</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="absolute=${false}">
+<name>absolute</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：List Directory</doc>
+<shortdoc>封装OperatingSystem：List Directory</shortdoc>
+</kw>
+<kw name="获取目录下的文件" lineno="186">
+<arguments repr="path, pattern=${None}, absolute=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="pattern=${None}">
+<name>pattern</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="absolute=${false}">
+<name>absolute</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：List Files In Directory</doc>
+<shortdoc>封装OperatingSystem：List Files In Directory</shortdoc>
+</kw>
+<kw name="获取目录下的目录" lineno="177">
+<arguments repr="path, pattern=${None}, absolute=${false}">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="pattern=${None}">
+<name>pattern</name>
+<default>${None}</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="absolute=${false}">
+<name>absolute</name>
+<default>${false}</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：List Directories In Directory</doc>
+<shortdoc>封装OperatingSystem：List Directories In Directory</shortdoc>
+</kw>
+<kw name="记录所有环境变量" lineno="200">
+<arguments repr="level=INFO">
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="level=INFO">
+<name>level</name>
+<default>INFO</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Log Environment Variables</doc>
+<shortdoc>封装OperatingSystem：Log Environment Variables</shortdoc>
+</kw>
+<kw name="设置修改时间" lineno="153">
+<arguments repr="path, mtime">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="mtime">
+<name>mtime</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Set Modified Time</doc>
+<shortdoc>封装OperatingSystem：Set Modified Time</shortdoc>
+</kw>
+<kw name="设置环境变量" lineno="8">
+<arguments repr="name, value">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="name">
+<name>name</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Set Environment Variable</doc>
+<shortdoc>封装OperatingSystem：Set Environment Variable</shortdoc>
+</kw>
+<kw name="连接路径" lineno="163">
+<arguments repr="base, *parts">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="base">
+<name>base</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*parts">
+<name>parts</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Join Path</doc>
+<shortdoc>封装OperatingSystem：Join Path</shortdoc>
+</kw>
+<kw name="追加到文件" lineno="39">
+<arguments repr="path, content, encoding=UTF-8">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="content">
+<name>content</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="encoding=UTF-8">
+<name>encoding</name>
+<default>UTF-8</default>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Append To File</doc>
+<shortdoc>封装OperatingSystem：Append To File</shortdoc>
+</kw>
+<kw name="追加环境变量" lineno="13">
+<arguments repr="name, *values, **config">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="name">
+<name>name</name>
+</arg>
+<arg kind="VAR_POSITIONAL" required="false" repr="*values">
+<name>values</name>
+</arg>
+<arg kind="VAR_NAMED" required="false" repr="**config">
+<name>config</name>
+</arg>
+</arguments>
+<doc>封装OperatingSystem：Append To Environment Variable</doc>
+<shortdoc>封装OperatingSystem：Append To Environment Variable</shortdoc>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

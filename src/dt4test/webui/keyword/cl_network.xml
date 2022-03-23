@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="network" type="LIBRARY" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:03Z" specversion="3" source="../../lib/network.py" lineno="1">
+<version/>
+<doc>Documentation for library ``network``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="Curl" lineno="59">
+<arguments repr="*varargs">
+<arg kind="VAR_POSITIONAL" required="false" repr="*varargs">
+<name>varargs</name>
+</arg>
+</arguments>
+<doc>根据测试用例中的参数 组装 curl 命令
+默认加 -s 参数 忽略 -v 参数
+如果是 https 默认加 -k 参数</doc>
+<shortdoc>根据测试用例中的参数 组装 curl 命令 默认加 -s 参数 忽略 -v 参数 如果是 https 默认加 -k 参数</shortdoc>
+</kw>
+<kw name="Run Pytest" lineno="33">
+<arguments repr="cases">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="cases">
+<name>cases</name>
+</arg>
+</arguments>
+<doc>API 运行 pytest 用例 ： TODO: 进一步调试和优化参数支持和稳定性</doc>
+<shortdoc>API 运行 pytest 用例 ： TODO: 进一步调试和优化参数支持和稳定性</shortdoc>
+</kw>
+<kw name="Run Rftest" lineno="46">
+<arguments repr="cases">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="cases">
+<name>cases</name>
+</arg>
+</arguments>
+<doc>API 运行 rf 用例 ： TODO: 进一步调试和优化参数支持和稳定性</doc>
+<shortdoc>API 运行 rf 用例 ： TODO: 进一步调试和优化参数支持和稳定性</shortdoc>
+</kw>
+<kw name="Send Get Request" lineno="13">
+<arguments repr="host, path, payload, headers=None">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="host">
+<name>host</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="payload">
+<name>payload</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="headers=None">
+<name>headers</name>
+<default>None</default>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="Send Post Request" lineno="23">
+<arguments repr="host, path, payload, headers=None">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="host">
+<name>host</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="path">
+<name>path</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="payload">
+<name>payload</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="headers=None">
+<name>headers</name>
+<default>None</default>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="Ssh Cmd" lineno="201">
+<arguments repr="cmd, host, user, passwd, port, timeout=120, datatype=1">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="cmd">
+<name>cmd</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="host">
+<name>host</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="user">
+<name>user</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="passwd">
+<name>passwd</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="port">
+<name>port</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="timeout=120">
+<name>timeout</name>
+<default>120</default>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="datatype=1">
+<name>datatype</name>
+<default>1</default>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="Ssh Download" lineno="221">
+<arguments repr="sourcepath, distpath, host, user, passwd, port">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="sourcepath">
+<name>sourcepath</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="distpath">
+<name>distpath</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="host">
+<name>host</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="user">
+<name>user</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="passwd">
+<name>passwd</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="port">
+<name>port</name>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="Ssh Upload" lineno="211">
+<arguments repr="sourcepath, distpath, host, user, passwd, port">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="sourcepath">
+<name>sourcepath</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="distpath">
+<name>distpath</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="host">
+<name>host</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="user">
+<name>user</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="passwd">
+<name>passwd</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="port">
+<name>port</name>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

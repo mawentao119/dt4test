@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="jsonp" type="LIBRARY" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:03Z" specversion="3" source="../../lib/jsonp.py" lineno="1">
+<version/>
+<doc>Documentation for library ``jsonp``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="Expect Json" lineno="13">
+<arguments repr="result, item=, exp=, exptype=unicode">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="result">
+<name>result</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="item=">
+<name>item</name>
+<default/>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="exp=">
+<name>exp</name>
+<default/>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="exptype=unicode">
+<name>exptype</name>
+<default>unicode</default>
+</arg>
+</arguments>
+<doc>将测试结果转化成 json 通过 jmespath 进行解析， 与测试用例中的预期进行对比 
+目前支持的预期结果类型： unicode(默认)、int、float 因为jmespath抽取后就这三种类型</doc>
+<shortdoc>将测试结果转化成 json 通过 jmespath 进行解析， 与测试用例中的预期进行对比  目前支持的预期结果类型： unicode(默认)、int、float 因为jmespath抽取后就这三种类型</shortdoc>
+</kw>
+<kw name="Get Result" lineno="47">
+<arguments repr="result, item, exptype=str">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="result">
+<name>result</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="false" repr="exptype=str">
+<name>exptype</name>
+<default>str</default>
+</arg>
+</arguments>
+<doc>返回json内的特定内容，保存结果给下一次请求使用，暂支持str返回，后续考虑扩展</doc>
+<shortdoc>返回json内的特定内容，保存结果给下一次请求使用，暂支持str返回，后续考虑扩展</shortdoc>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

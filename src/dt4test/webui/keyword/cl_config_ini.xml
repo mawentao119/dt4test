@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="config_ini" type="LIBRARY" format="ROBOT" scope="GLOBAL" generated="2022-01-06T12:28:03Z" specversion="3" source="../../lib/config_ini.py" lineno="1">
+<version/>
+<doc>Documentation for library ``config_ini``.</doc>
+<tags>
+</tags>
+<inits>
+</inits>
+<keywords>
+<kw name="Get Item" lineno="29">
+<arguments repr="filename, section, item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="filename">
+<name>filename</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="section">
+<name>section</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="Get Variables" lineno="49">
+<arguments repr="varname, filename">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="varname">
+<name>varname</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="filename">
+<name>filename</name>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="Item Exists" lineno="40">
+<arguments repr="filename, section, item">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="filename">
+<name>filename</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="section">
+<name>section</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+<kw name="Set Item" lineno="12">
+<arguments repr="filename, section, item, value">
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="filename">
+<name>filename</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="section">
+<name>section</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="item">
+<name>item</name>
+</arg>
+<arg kind="POSITIONAL_OR_NAMED" required="true" repr="value">
+<name>value</name>
+</arg>
+</arguments>
+<doc/>
+<shortdoc/>
+</kw>
+</keywords>
+<datatypes>
+</datatypes>
+</keywordspec>

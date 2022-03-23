@@ -1,0 +1,12 @@
+# Just For Test Monitor Functions
+---
+      master:
+        - cpu_idle:
+            interval: '21'
+        - mem_usage
+
+      slave:
+        - cpu_idle
+        - mem_usage:
+            interval: 18
+...
