@@ -1,4 +1,3 @@
-
 import requests
 import paramiko
 import subprocess
@@ -68,13 +67,16 @@ class SSHClass:
         sftp = paramiko.SFTPClient.from_transport(scpclient)
         return scpclient, sftp
 
-    def getexe(self, command, timeout=120, datatype=1):
+    def getexe(self, command, timeout=120, datatype=1, exec_sudo=False):
         sout = []
         serr = []
         status = 1
         if not self.is_error and type(command) == str:
             log.info("执行远程命令:{}".format(command))
             stdin, stdout, stderr = self.sshclient.exec_command(command, bufsize=10, timeout=timeout, get_pty=True)
+            if exec_sudo:
+                # 如果要执行sudo，则还需要输入密码
+                stdin.write(self.pwd + '\n')
             if datatype == 1:
                 # 按照 行 切分的列表
                 souttmp = stdout.readlines()
@@ -94,15 +96,15 @@ class SSHClass:
             serr = [self.error_info]
         return sout, serr, status
 
-    def getscp(self, sourcepath, distpath, type):
+    def getscp(self, sourcepath, distpath, scp_type):
         status = 1
         info = None
         if not self.is_error:
             try:
-                if type == 1:
+                if scp_type == 1:
                     log.info("Put src:{} des:{}".format(sourcepath, distpath))
                     info = self.sftp.put(sourcepath, distpath)
-                elif type == 2:
+                elif scp_type == 2:
                     log.info("Get src:{} des:{}".format(sourcepath, distpath))
                     info = self.sftp.get(sourcepath, distpath)
                 status = 0
@@ -133,11 +135,13 @@ class Network(Helper):
     """
     网络服务的公共库
     """
-    def send_get_request(self, host, path, payload, headers=None):
+
+    @staticmethod
+    def send_get_request(host, path, payload=None, headers=None, **kwargs):
         """
-        | 发送http get 请求，``payload`` 是json的 key，value 对, http://1.1.1.1:8088/api/someapi
+        | 发送http get 请求，payload是字典格式的键值对, http://1.1.1.1:8088/api/someapi
         | :param host: 1.1.1.1:8088
-        | :param path: /api/someapi
+        | :param path: /api/someapi，host和path拼接出的url为http://1.1.1.1:8088/api/someapi
         | :param payload: {"name":"zhangsan","age":"22"}
         | :param headers: http headers like {"content-type":"json"}
         | :return: request.response
@@ -150,23 +154,26 @@ class Network(Helper):
         | assert(res.status_code == 200)
         | print(res.content)
         """
-        log.info("Send get request:{} {} {} {} ".format(host, path, payload, headers))
-        url = 'http://{}{}'.format(host, path)
-        response = {}
+        url = host + path
+        log.info("Send get request: {} {} {} ".format(url, payload, headers))
+
         try:
-            response = requests.get(url, params=payload)
+            response = requests.get(url, params=payload, headers=headers, **kwargs)
+            log.info("response status code: %s" % response.status_code)
         except Exception as err:
             log.error("send restful request failed, cmd: {0}, payload: {1}, err: {2}".format(url, payload, err))
             raise err
+
         return response
 
-    def send_post_request(self, host, path, payload, headers=None):
+    @staticmethod
+    def send_post_request(host, path, payload=None, headers=None, **kwargs):
         """
-        | 发送http post 请求，``payload`` 是json的 key，value 对, http://1.1.1.1:8088/api/someapi
+        | 发送http post 请求，payload是json格式的字符串, http://1.1.1.1:8088/api/someapi
         | :param host: 1.1.1.1:8088
-        | :param path: /api/someapi
+        | :param path: /api/someapi，host和path拼接出的url为http://1.1.1.1:8088/api/someapi
         | :param payload: {"name":"zhangsan","age":"22"}
-        | :param headers: http headers like {"content-type":"json"}
+        | :param headers: http headers like {"content-type":"application/json"}
         | :return: request.response
         |
         | **Example** :
@@ -177,17 +184,80 @@ class Network(Helper):
         | assert(res.status_code == 200)
         | print(res.content)
         """
-        log.info("Send post request:{} {} {} {} ".format(host, path, payload, headers))
-        url = 'http://{}{}'.format(host, path)
-        response = {}
+        url = host + path
+        log.info("Send post request: {} {} {} ".format(url, payload, headers))
+
         try:
-            response = requests.post(url, data=payload, headers=headers)
+            response = requests.post(url, data=payload, headers=headers, **kwargs)
+            log.info("response status code: %s" % response.status_code)
         except Exception as err:
             log.error("send restful request failed, cmd: {0}, payload: {1}, err: {2}".format(url, payload, err))
             raise err
+
         return response
 
-    def ssh_cmd(self, cmd, host, user, passwd, port, timeout=120, datatype=1):
+    @staticmethod
+    def send_put_request(host, path, payload=None, headers=None, **kwargs):
+        """
+        | 发送http put 请求，payload是json格式的字符串, http://1.1.1.1:8088/api/someapi
+        | :param host: 1.1.1.1:8088
+        | :param path: /api/someapi，host和path拼接出的url为http://1.1.1.1:8088/api/someapi
+        | :param payload: {"name":"zhangsan","age":"22"}
+        | :param headers: http headers like {"content-type":"application/json"}
+        | :return: request.response
+        |
+        | **Example** :
+        | host = "yourshost.com:8081"
+        | payload = {"bid":"110", "model_name":"test_model"}
+        | path = "/master/querybid"
+        | res = send_put_request(host, path, payload)
+        | assert(res.status_code == 200)
+        | print(res.content)
+        """
+        url = host + path
+        log.info("Send put request: {} {} {} ".format(url, payload, headers))
+
+        try:
+            response = requests.put(url, data=payload, headers=headers, **kwargs)
+            log.info("response status code: %s" % response.status_code)
+        except Exception as err:
+            log.error("send restful request failed, cmd: {0}, payload: {1}, err: {2}".format(url, payload, err))
+            raise err
+
+        return response
+
+    @staticmethod
+    def send_delete_request(host, path, payload=None, headers=None, **kwargs):
+        """
+        | 发送http delete 请求，payload是json格式的字符串, http://1.1.1.1:8088/api/someapi
+        | :param host: 1.1.1.1:8088
+        | :param path: /api/someapi，host和path拼接出的url为http://1.1.1.1:8088/api/someapi
+        | :param payload: {"name":"zhangsan","age":"22"}
+        | :param headers: http headers like {"content-type":"application/x-www-form-urlencoded"}
+        | :return: request.response
+        |
+        | **Example** :
+        | host = "yourshost.com:8081"
+        | payload = {"bid":"110", "model_name":"test_model"}
+        | path = "/master/querybid"
+        | res = send_put_request(host, path, payload)
+        | assert(res.status_code == 200)
+        | print(res.content)
+        """
+        url = host + path
+        log.info("Send delete request: {} {} {} ".format(url, payload, headers))
+
+        try:
+            response = requests.delete(url, params=payload, headers=headers, **kwargs)
+            log.info("response status code: %s" % response.status_code)
+        except Exception as err:
+            log.error("send restful request failed, cmd: {0}, payload: {1}, err: {2}".format(url, payload, err))
+            raise err
+
+        return response
+
+    @staticmethod
+    def ssh_cmd(cmd, host, user, passwd, port, timeout=120, datatype=1):
         """
         | 远程执行 ssh command
         | :param cmd: command
@@ -210,7 +280,8 @@ class Network(Helper):
         finally:
             ssh.close()
 
-    def ssh_upload(self, sourcepath, distpath, host, user, passwd, port=36000):
+    @staticmethod
+    def ssh_upload(sourcepath, distpath, host, user, passwd, port=36000):
         """
         | Scp 上传文件到远程主机
         | :param sourcepath:
@@ -233,7 +304,8 @@ class Network(Helper):
         finally:
             ssh.close()
 
-    def ssh_download(self, sourcepath, distpath, host, user, passwd, port):
+    @staticmethod
+    def ssh_download(sourcepath, distpath, host, user, passwd, port):
         """
         | SCP 从远程主机下载文件
         | :param sourcepath:
@@ -256,7 +328,8 @@ class Network(Helper):
         finally:
             ssh.close()
 
-    def curl(self, *varargs):
+    @staticmethod
+    def curl(*varargs):
         """
         | 根据测试用例中的参数 组装 curl 命令,默认加 -s 参数 忽略 -v 参数,如果是 https 默认加 -k 参数
         | :param varargs:
@@ -287,5 +360,3 @@ class Network(Helper):
             raise e
         return p.returncode, stdout, stderr
 
-
-NETWORK = Network()

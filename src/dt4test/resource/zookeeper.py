@@ -202,5 +202,3 @@ class ZooKeeper(Helper):
         self.zk_stop()
         return res
 
-
-ZOOKEEPER = ZooKeeper()
