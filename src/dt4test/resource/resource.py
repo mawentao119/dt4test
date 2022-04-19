@@ -60,7 +60,11 @@ class Resource(Helper):
             for py in alist:
                 mod_file = os.path.splitext(py)[0]
                 mod_imp = __import__(mod_file)
+                if not mod_imp.MODULE_NAME:        # 没有这个变量，人为是普通的pyfile ，不作为 dt 的模块使用
+                    continue
                 mod_name = mod_imp.MODULE_NAME
+                if not mod_imp.MODULE_INSTANCE:
+                    continue
                 mod_instance = mod_imp.MODULE_INSTANCE
                 user_res[mod_name] = mod_instance
         return user_res

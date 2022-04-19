@@ -26,8 +26,11 @@ def show_all_modules():
                 print("Lib {}:{}".format(m, at.__doc__.splitlines()[1].strip() if at.__doc__ else ""))
 
     user_res = dt4test.resource.get_user_resource()
+    if len(user_res) == 0:
+        return 0
     for res in user_res.keys():
         print("User Res: "+res)
+    return 0
 
 
 def show_usage():
