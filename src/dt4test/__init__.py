@@ -19,4 +19,5 @@ from .resource.resource import RESOURCE as resource
 
 log = Logger().get_logger()
 
-network = Network
+network = Network()
+
