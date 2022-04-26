@@ -368,7 +368,38 @@ class TaskList(Resource):
 
         elif args['method'] == "delete_monitor":
             self.log.info("删除监控，args：{}".format(args))
-            return {"status": "success", "msg": "删除监控成功"}
+
+            task_no = str(args.get("task_id", None))
+
+            task_num = 0
+
+            lock = threading.Lock()
+            lock.acquire()
+            try:
+                for job in scheduler.get_jobs():
+                    (task_id, user, project) = job.id.split('#')
+                    if task_id == task_no:
+                        scheduler.remove_job(job.id)
+                        task_num += 1
+            except Exception as e:
+                lock.release()
+                return {"status": "fail", "msg": "Fail: {}".format(e)}
+            lock.release()
+
+            res = self.app.config['DB'].runsql(
+                "DELETE from schedule_job where task_no='{}';".format(task_no))
+
+            if res:
+                self.app.config['DB'].insert_loginfo(os.environ["USER_NAME"], 'schedulejob', 'del_monitor',
+                                                     'all',
+                                                     'success')
+            else:
+                self.app.config['DB'].insert_loginfo(os.environ["USER_NAME"], 'schedulejob', 'del_monitor',
+                                                     'all',
+                                                     'DB Fail')
+                return {"status": "fail", "msg": "数据库操作失败"}
+
+            return {"status": "success", "msg": "删除监控成功", "total": task_num}
         else:
             self.log.error("参数错误： {}".format(args))
             return {"status": "fail", "msg": "参数错误：method 无法识别"}

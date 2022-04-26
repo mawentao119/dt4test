@@ -12,6 +12,7 @@ from flask import Blueprint, render_template, session, redirect, url_for, curren
 from utils.file import get_splitext, exists_path, read_file
 from utils.model_design import show_ui
 from utils.do_report import get_distinct_suites, rpt_caseratio, rpt_runprogress, rpt_moduleprogress, rpt_moduleinfo
+from utils.monitor_run import get_monitor_info
 
 from utils.mylogger import getlogger
 
@@ -251,6 +252,20 @@ def compare(key):
     rpkey = key.replace("--", "/")
 
     return render_template("compare_caseresult.html", dir=rpkey)
+
+
+@routes.route("/monitor_info/")
+def monitor_info():
+    # monitor = [
+    #     {'no': '1', 'name': '1.2.3.4|cpu_idle|%', 'time': ['2021-01-01', '2021-01-02', '2021-01-03', '2021-01-04'],
+    #      'data': [2, 5, 1, 6]},
+    #     {'no': '2', 'name': '1.2.3.4|mem_fre|sum', 'time': ['2021-01-01', '2021-01-02', '2021-01-03', '2021-01-04'],
+    #      'data': [1, 8, 4, 6]},
+    #     {'no': '3', 'name': '1.2.3.4|io_bus|time', 'time': ['2021-01-01', '2021-01-02', '2021-01-03', '2021-01-04'],
+    #      'data': [7, 3, 2, 4]}
+    #         ]
+    monitor = get_monitor_info()
+    return render_template('monitor_info.html', monitor=monitor)
 
 
 @routes.route("/excutereport/<key>")

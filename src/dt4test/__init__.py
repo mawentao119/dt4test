@@ -14,6 +14,7 @@ from .lib.expectation import EXPECTATION as expect
 from .resource.env import ENV as env
 from .resource.zookeeper import ZooKeeper
 from .resource.monitor import MONITOR as monitor
+from .resource.perform import PERFORM as perform
 
 from .resource.resource import RESOURCE as resource
 

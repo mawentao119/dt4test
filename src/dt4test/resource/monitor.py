@@ -327,17 +327,30 @@ class Monitor(Helper):
             api_path = self.webui_path
 
             log.info("添加监控：{} {} {}".format(host,api_path,payload))
-            self.network.send_post_request(host, api_path, payload)
+            res = self.network.send_post_request(host, api_path, payload)
+
+            assert (res.status_code == 200)
+            log.info("添加监控返回：{}".format(res.content))
 
         print(plan_id)
         return 0
 
     def stop_plan(self, plan_id):
-        payload = {"method": "stop_plan", "task_id": str(plan_id)}
+        """
+        调用API接口删除监控指标
+        | :param plan_id: plan ID
+        | :return:
+        """
+        payload = {"method": "delete_monitor", "task_id": str(plan_id)}
         host = self.webui_ip + ":" + self.webui_port
         api_path = self.webui_path
         log.info("停止监控计划：{} {} {}".format(host, api_path, payload))
-        self.network.send_post_request(host, api_path, payload)
+        res = self.network.send_post_request(host, api_path, payload)
+
+        assert (res.status_code == 200)
+        log.info("停止监控返回：{}".format(res.content))
+
+        return 0
 
     def create_monitor(self, monitor_name):
         """

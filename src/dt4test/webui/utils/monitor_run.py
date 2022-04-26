@@ -161,3 +161,37 @@ def monitor_run(task_no, monitor_item, ip, port, login_user, login_passwd, scrip
     time_now = time.strftime("%Y%m%d%H%M%S", time.localtime())
     db_cli.insert_monitor(task_no, ip, monitor_item, time_now, val, info)
 
+def get_monitor_info(task_id="TODO"):
+    # monitors = [
+    #     {'no': '1', 'name': '1.2.3.4|cpu_idle|%', 'time': ['2021-01-01', '2021-01-02', '2021-01-03', '2021-01-04'],
+    #      'data': [2, 5, 1, 6]},
+    #     {'no': '2', 'name': '1.2.3.4|mem_fre|sum', 'time': ['2021-01-01', '2021-01-02', '2021-01-03', '2021-01-04'],
+    #      'data': [1, 8, 4, 6]},
+    #     {'no': '3', 'name': '1.2.3.4|io_bus|time', 'time': ['2021-01-01', '2021-01-02', '2021-01-03', '2021-01-04'],
+    #      'data': [7, 3, 2, 4]}
+    # ]
+    once_limit = 10
+    monitors = []
+    # select distinct(name) from (select ip || '|' || monitor_item as name from monitor where task_no='1234');
+    sql = '''select distinct(name) from (select ip || '|' || monitor_item as name from monitor);'''
+    res = db_cli.runsql(sql)
+
+    monitor_num = 0
+    for i in res:
+        (name,) = i
+        monitor_num += 1
+        mnt = {'no': monitor_num, 'name': name, 'time': [], 'data': []}
+        monitors.append(mnt)
+
+    for m in monitors:
+        (ip, monitor_item) = m['name'].split('|')
+        sql = '''select time_now,value from monitor where ip='{}' and monitor_item='{}' 
+                                 order by time_now desc limit {} ;'''.format(ip, monitor_item, once_limit)
+
+        res_new = db_cli.runsql(sql)
+        for item in res_new:
+            (time_now, value) = item
+            m['time'].append(time_now)
+            m['data'].append(value)
+
+    return monitors

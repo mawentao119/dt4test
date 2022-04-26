@@ -2,7 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import os
+import re
 import sys
+
+from robot.run import run_cli
 
 # 【check】环境变量的check， 在dt脚本开始
 if not os.environ.get("PROJECT_DIR", None):
@@ -78,6 +81,11 @@ if __name__ == '__main__':
 
     if len(sys.argv) >= 4 and sys.argv[1] == 'create' and sys.argv[2] == 'resource':
         exit(resource.cli(sys.argv))
+
+    if len(sys.argv) >= 2 and sys.argv[1].endswith('.robot'):
+        os.environ["ROBOT_OPTIONS"] = "--outputdir "+ PROJECT_DIR + "/output/" + dt4test.base.gen_outputdir()
+        sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+        sys.exit(run_cli())
 
     if len(sys.argv) >= 2:
         user_res = resource.get_user_resource()
