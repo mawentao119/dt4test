@@ -415,4 +415,3 @@ class Monitor(Helper):
             return
 
 
-MONITOR = Monitor()

@@ -96,5 +96,3 @@ class Resource(Helper):
     def get_resource_dir(self):
         return self.resource_dir
 
-
-RESOURCE = Resource()

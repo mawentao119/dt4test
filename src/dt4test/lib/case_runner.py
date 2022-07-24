@@ -39,4 +39,3 @@ class CaseRunner(Helper):
         s = bytes.decode(res.content)
         return s
 
-CASERUNNER = CaseRunner()

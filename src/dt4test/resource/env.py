@@ -125,6 +125,11 @@ class Env(Helper):
             raise FileNotFoundError("找不到配置文件 {}".format(self.roles_file))
 
     def show_role_info(self, role):
+        """
+        打印role信息
+        :param role: role name
+        :return: None
+        """
         self._check_roles_file()
         user = self.get_user(role)
         password = self.get_password(role)
@@ -381,10 +386,13 @@ class Env(Helper):
         return os.path.join(self.output_dir, rand_name)
 
     def get_webui_ip_port(self):
+        """
+        :return: ip,port
+        """
         proc_file = self.get_output_dir() + "/.webui.info"
 
         if not os.path.exists(proc_file):
-            log.error("找不到文件：{}, 请确认webui是否启动".format(proc_file))
+            log.warn("找不到文件：{}, 请确认webui是否启动".format(proc_file))
             return "127.0.0.1", "8080"
 
         with open(proc_file, 'r') as f:
@@ -398,4 +406,3 @@ class Env(Helper):
         return self.api_path
 
 
-ENV = Env()

@@ -407,5 +407,3 @@ class Perform(Helper):
         case_file = self.create_perform_detail(yaml_file)
         return case_file
 
-
-PERFORM = Perform()

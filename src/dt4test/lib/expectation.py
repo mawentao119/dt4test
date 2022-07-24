@@ -327,4 +327,3 @@ class Expectation(Helper):
         return self.os.file_should_not_exist(path, msg)
 
 
-EXPECTATION = Expectation()

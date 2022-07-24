@@ -138,4 +138,3 @@ class ConfigIni(Helper):
     def add_item(self, conf_file, section, item, value):
         self.set_item(conf_file, section, item, value, add_new=True)
 
-CONFIGINI = ConfigIni()

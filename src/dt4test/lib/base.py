@@ -62,5 +62,3 @@ class Base(Helper):
         return dir_name
 
 
-BASE = Base()
-

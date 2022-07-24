@@ -453,5 +453,4 @@ class Element(Helper):
         return self.collect.set_to_dictionary(dictionary, *key_value_pairs, **items)
 
 
-ELEMENT = Element()
 

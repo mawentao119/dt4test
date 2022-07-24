@@ -3,9 +3,11 @@
 # 通过 jmespath 模块实现结果的 查找与对比
 # 外部需求：需要连接数据库取得用户id和key，如果无法连接，可以在 get auth 中根据用户名直接给
 
-import os
 import json
 import jmespath
+import ast
+
+from robot.utils.dotdict import DotDict
 
 from .helper import Helper
 from .logger import Logger
@@ -31,7 +33,14 @@ class JsonP(Helper):
             log.error("Not suppor Compare type:" + exptype + ". Use: int,unicode,float")
             raise TypeError("Not suppor Compare type:" + exptype + ". Use: int,unicode,float")
 
-        rjs = json.loads(result)
+        if isinstance(result, DotDict):
+            astr = str(result)
+            bstr = ast.literal_eval(astr)
+            jstr = json.dumps(bstr)
+            rjs = json.loads(jstr)
+        else:
+            rjs = json.loads(result)
+            
         r_val = jmespath.search(item, rjs)
         log.info("Expect: " + item + ":" + exp + " >> " + str(r_val))
         if r_val is None:
@@ -62,6 +71,17 @@ class JsonP(Helper):
         | exptype: 预期类型（默认 str）
         | :return: result OR ""
         """
+        if isinstance(result, DotDict):
+            astr = str(result)
+            bstr = ast.literal_eval(astr)
+            jstr = json.dumps(bstr)
+            # print(jstr)
+            rjs = json.loads(jstr)
+            r_val = jmespath.search(item, rjs)
+            if exptype == 'list':
+                return list(r_val)
+            return str(r_val)
+
         if result.strip().startswith('"') or result.strip().startswith("'"):
             res = result.strip()[1:-1]
         else:
@@ -70,7 +90,20 @@ class JsonP(Helper):
         r_val = jmespath.search(item, rjs)
         if exptype == 'list':
             return list(r_val)
+
         return str(r_val)
 
-JSONP = JsonP()
-
+    def get_s_result(self, session_file, item, exptype='str'):
+        """
+        从json文件中获取信息
+        :param session_file: json文件
+        :param item: 搜索的item
+        :param exptype: 返回值类型，默认str，可以是 list
+        :return: 返回 str 或 list
+        """
+        with open(session_file, 'r') as f:
+            content_j = json.load(f)
+        r_val = jmespath.search(item, content_j)
+        if exptype == 'list':
+            return list(r_val)
+        return str(r_val)

@@ -166,5 +166,4 @@ class OPSystem(Helper):
         return self.os.set_modified_time(path, mtime)
 
 
-OPSYSTEM = OPSystem()
 

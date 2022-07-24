@@ -16,7 +16,7 @@ with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
 
 # Version number typically updated by running `invoke set-version <version>`.
 # Run `invoke --help set-version` or see tasks.py for details.
-VERSION = '0.1.6'
+VERSION = '0.1.8'
 
 CLASSIFIERS = """
 Development Status :: 5 - Production/Stable
