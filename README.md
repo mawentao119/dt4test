@@ -1,6 +1,17 @@
 # Dt4test
 A library for distributed big data system test
 
+## Introduction ( main purpose )
+* TestCase running environment
+* TestCase viewing and tune
+* Assistance libs of network, container and data generator
+* Support monitor and warnning system
+* Offer period running task
+* Support performance test plan and execution
+* Unified test report generation
+* Bigdata components client
+* Bigdata components startup and revoke
+
 ### Installation
 ```
 pip install dt4test

@@ -31,5 +31,10 @@ include src/dt4test/monitor/*.py
 include src/dt4test/bin/*.sh
 include src/dt4test/bin/*.py
 
+include src/dt4test/webui/utils/time_server/*.*
+include src/dt4test/webui/utils/time_server/rules/*.*
+include src/dt4test/webui/utils/time_server/service/*.*
+
+
 include MANIFEST.in
 prune src/dt4test/webui/testdata

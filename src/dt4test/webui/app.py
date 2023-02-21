@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__author__ = "苦叶子"
-__modifier__ = 'charisma 2020-01-20'
+__author__ = "mawentao119@gmail.com"
 
 """
 All Start Here!

@@ -11,6 +11,7 @@ import threading
 from datetime import datetime
 from utils.run import robot_run
 from utils.monitor_run import monitor_run
+
 from utils.mylogger import getlogger
 
 log = getlogger(__name__)
@@ -205,6 +206,44 @@ def add_monitorjob(scheduler, args):
         except Exception as e:
             lock.release()
             return {"status": "fail", "msg": "Error: 调度任务添加失败:{}".format(e)}
+
+    lock.release()
+    return {"status": "success", "msg": "新增调度任务成功:{}".format(job_id)}
+
+def add_scheduler_data_update_job(scheduler, args, sc):
+    mode = args["mode"]
+    min = args["min"]
+    sec = args["sec"]
+
+    schedule_type= args["schedule_type"]
+
+    job_id = "{}#{}#{}".format("sc_data", "update", mode)
+
+    lock = threading.Lock()
+    lock.acquire()
+    job = scheduler.get_job(job_id)
+
+    if job:
+        log.warn("任务已存在，进行删除")
+        scheduler.remove_job(job_id)
+
+    log.info("增加调度数据更新任务 args:{} ".format( args ))
+    try:
+        scheduler.add_job(id=job_id,
+                          name="update_data",
+                          func=sc.update_data,
+                          args=(mode,),
+                          trigger=schedule_type,
+                          weeks=0,
+                          days=0,
+                          hours=0,
+                          minutes=int(min),
+                          seconds=int(sec)
+                          )
+    except Exception as e:
+        lock.release()
+        log.error("{}".format(e))
+        return {"status": "fail", "msg": "Error: 调度任务添加失败:{}".format(e)}
 
     lock.release()
     return {"status": "success", "msg": "新增调度任务成功:{}".format(job_id)}

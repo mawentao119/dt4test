@@ -15,6 +15,10 @@ import getpass
 from utils.dbclass import TestDB
 from utils.mylogger import getlogger
 
+from utils.time_server.scheduler_data import TimeServerData
+from utils.time_server.checkrules import CheckRules
+from utils.time_server.serviceinterface import ServiceProxy
+
 log = getlogger(__name__)
 
 class Config:
@@ -77,7 +81,23 @@ class Config:
     log.info("PROJECT_DIR:{}\nAUTO_HOME:{}".format(PROJECT_DIR, AUTO_HOME))
 
     sys.path.append(os.path.join(APP_DIR, 'utils/case_resource'))
+    
+    ############################ Added for CIA system ###########################################
+    TOPOLOGY = {}
+    COMMANDS = {}
+    SUBCOMMANDS = {}
+    COMMAND_TYPES = ["cmd", "ufile", "cfile", "dfile", "dfile_c", "dfile_a", "ufile_c","ufile_a", "getlog"]
+    AGENT_INTERVAL = 3
+    #############################################################################################
 
+    ############################ Added for Scheduler system #####################################
+    log.info("创建 Scheduler Data 对象：SD")
+    SD = TimeServerData()    # SD short for Scheduler Data
+    log.info("创建 Check Rules 对象：CR")
+    CR = CheckRules(SD)    # CR Short for Check Rules
+    log.info("创建 Service Porxy 对象: SV")
+    SV = ServiceProxy(SD)
+    #############################################################################################
 
     AUTO_ROBOT = [] # Process list of running tasks, only for hand running ,not for schceduled jobs. MAX: setting:MAX_PROCS
 

@@ -1,22 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+###############################################################
+# `dt` Command is a shell to the dt4test system
+# `dt` shows the modules of system and run command to communicate to server
+# `dt` is easy for running and turning test actions.
+###############################################################
+
 import os
 import re
 import sys
+import time
+import json
 
 from robot.run import run_cli
-
-# 【check】环境变量的check， 在dt脚本开始
-if not os.environ.get("PROJECT_DIR", None):
-    print("ERROR : 请设置环境变量 'PROJECT_DIR' 指向你的测试代码目录.")
-    exit(1)
-
-
-import dt4test
-
-PROJECT_DIR = os.environ.get("PROJECT_DIR")
-
 
 def show_all_modules():
     dirs = dt4test.__dir__()
@@ -41,22 +38,65 @@ def show_usage():
     print("Log file:{}".format(dt4test.Logger().get_logfile()))
     print(">> 所有模块 ... ")
     show_all_modules()
+    print("* dt webui [8081] : 启动 webui|Cia 服务器 Flask=2.0.1 && Wergzeug=2.0.1")
+    print("* dt agent : 启动 dtagent ")
     print(">> dt 模块名 [模块参数] ：得到具体的帮助和执行相应的操作")
     print("*****************************************")
 
 
 if __name__ == '__main__':
 
+    if len(sys.argv) == 2 and sys.argv[1] == 'init':
+        print(">> 请输入目录名称， 如： dt init test_project")
+        exit(1)
+
+    if len(sys.argv) == 3 and sys.argv[1] == 'init':
+        dir_name = sys.argv[2]
+        if os.path.exists(dir_name):
+            os.environ["PROJECT_DIR"] = os.path.abspath(dir_name)
+        else:
+            print(">> 找不到目录, 新建目录 {} ...".format(dir_name))
+            os.mkdir(dir_name)
+            os.environ["PROJECT_DIR"] = os.path.abspath(dir_name)
+        print(">> 项目目录初始化完成，请手动执行：export PROJECT_DIR={}".format(os.path.abspath(dir_name)))
+        exit(0)
+
+
+    # 【check】环境变量的check， 在dt脚本开始
+    if not os.environ.get("PROJECT_DIR", None):
+        print("ERROR : 没有发现环境变量 'PROJECT_DIR' ，请运行 dt init ${PRJECT_DIR} 初始化")
+        print("        如果${PRJECT_DIR}不存在则会创建，如果相应的配置文件不存在，则会自动增加")
+        exit(1)
+
+    import dt4test
+
+    PROJECT_DIR = os.environ.get("PROJECT_DIR")
+
     myos = dt4test.o_s
     myenv = dt4test.env
+    poster = dt4test.poster
+    proc = dt4test.proc
     monitor = dt4test.monitor
     resource = dt4test.resource
+    nt = dt4test.network
+
+    tsd = dt4test.tsd
+    tsv = dt4test.tsv
+    tcr = dt4test.tcr
 
     if len(sys.argv) == 1:
         show_usage()
         exit(1)
 
     if len(sys.argv) >= 2 and sys.argv[1] == 'webui':
+
+        pid_file = '/tmp/webui.info'       # not really pid file, just is ip:port
+        if os.path.exists(pid_file):
+            result = proc.run_process("ps -ef|grep app.py |grep -v grep", shell=True)
+            if result.stdout != "":
+                print("WARN: Webui started already, Pid: {}".format(result.stdout))
+                exit(0)
+
         port = "8081"
         if len(sys.argv) == 3:
             port = str(sys.argv[2])
@@ -64,11 +104,63 @@ if __name__ == '__main__':
         os.chdir(dirs)
         print('>> Start web ui {} : nohup python app.py --host 0.0.0.0 --port {} & '.format(dirs, port))
         os.system('nohup python app.py --host 0.0.0.0 --port ' + port + ' & ')
-        myos.create_file(PROJECT_DIR + "/output/.webui.info", "127.0.0.1 " + port)
+
+        time.sleep(3)
+
+        result = proc.run_process("ps -ef|grep app.py |grep -v grep", shell=True)
+        if result.stdout == "":
+            print("ERROR: Webui start Failed , Please see log: {}".format(dirs + "/nohup.out"))
+            exit(1)
+        else:
+            print("SUCCESS: Webui stared: {}".format(result.stdout))
+            ip = nt.get_local_ip()
+            myos.create_file(pid_file, ip + ":" + port)
+            exit(0)
+
+    if len(sys.argv) >= 2 and sys.argv[1] == 'agent':
+        pid_file = '/tmp/dtagent.pid'
+        if len(sys.argv) != 5:
+            print("Should Be: " + sys.argv[0] + " agent cia_ip cia_port my_role")
+            exit(1)
+
+        if os.path.exists(pid_file):
+            with open(pid_file, 'r') as pf:
+                pid = pf.readline().strip()
+            result = proc.run_process("ps -ef| grep " + pid + " | awk '{ print " + "$2" + "'}|grep " + pid, shell=True)
+            if result.stdout != "":
+                print("Agent started already, Pid: {}".format(pid))
+                exit(1)
+
+        dirs = os.path.dirname(dt4test.__file__) + '/webui'
+        utils = dirs + "/utils"
+        os.chdir(utils)
+        print('>> Start Agent: nohup python dtagent.py {} {} {} & '.format(sys.argv[2], sys.argv[3], sys.argv[4]))
+        os.system('nohup python dtagent.py {} {} {} &'.format(sys.argv[2], sys.argv[3], sys.argv[4]))
+
+        time.sleep(3)
+        with open(pid_file, 'r') as pf:
+            info = pf.readline()
+            print("Agent started, Pid: {} \n".format(info))
         exit(0)
 
     if len(sys.argv) >= 2 and sys.argv[1] in ['env', 'ssh', 'sshf', 'scp','put','get']:
         exit(myenv.cli(sys.argv))
+
+    if len(sys.argv) >= 2 and sys.argv[1] == 'poster':    # poster use json to send and receive data
+        print(json.dumps(poster.cli(sys.argv)))
+        exit(0)
+
+    if len(sys.argv) >= 2 and sys.argv[1] == 'sd':    # TimeServerData
+        print(json.dumps(tsd.cli(sys.argv)))
+        exit(0)
+
+    if len(sys.argv) >= 2 and sys.argv[1] == 'sv':    # TimeServer: service
+        print(json.dumps(tsv.cli(sys.argv)))
+        exit(0)
+
+    if len(sys.argv) >= 2 and sys.argv[1] == 'cr':    # TimeServer: Checkrule
+        print(json.dumps(tcr.cli(sys.argv)))
+        exit(0)
 
     if len(sys.argv) >= 2 and sys.argv[1] == 'monitor':
         exit(monitor.cli(sys.argv))

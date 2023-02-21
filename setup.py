@@ -16,7 +16,7 @@ with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
 
 # Version number typically updated by running `invoke set-version <version>`.
 # Run `invoke --help set-version` or see tasks.py for details.
-VERSION = '0.1.8'
+VERSION = '0.3.1'
 
 CLASSIFIERS = """
 Development Status :: 5 - Production/Stable
@@ -42,7 +42,7 @@ KEYWORDS = ('dt4test automation testautomation rpa '
             'testing acceptancetesting atdd bdd')
 PACKAGE_DATA = [join('webui', directory, pattern)
                 for directory in ('rebot', 'libdoc', 'testdoc', 'lib', 'common')
-                for pattern in ('*.html', '*.css', '*.js')]
+                for pattern in ('*.html', '*.css', '*.js', '*.py')]
 
 
 setup(
@@ -65,11 +65,18 @@ setup(
     packages     = find_packages('src'),
     scripts=['src/dt4test/bin/dt'],
     install_requires=[
+        "Flask",
+        "Flask_APScheduler",
+        "Flask_RESTful",
+        "markdown",
+        "openpyxl",
         "pytest",
         "jmespath",
         "paramiko",
         "robotframework",
         "kazoo",
+        "requests",
+        "GitPython",
         "pyyaml"
     ]
 )

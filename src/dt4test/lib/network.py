@@ -1,3 +1,4 @@
+import os
 import requests
 import paramiko
 import subprocess
@@ -359,4 +360,16 @@ class Network(Helper):
             log.error("Curl命令失败：{}".format(e))
             raise e
         return p.returncode, stdout, stderr
+
+    @staticmethod
+    def get_local_ip():
+        ip = os.environ.get("POD_IP", None)
+        if not ip:
+            import socket
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            s.connect(("8.8.8.8", 80))
+            ip = s.getsockname()[0]
+            s.close()
+
+        return ip
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-__author__ = "苦叶子"
+__author__ = "mawentao119@gmail.com"
 
 """
 

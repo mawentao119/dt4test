@@ -1,3 +1,6 @@
+import os.path
+import zipfile
+
 from robot.libraries.OperatingSystem import OperatingSystem
 
 from .helper import Helper
@@ -165,5 +168,19 @@ class OPSystem(Helper):
         """
         return self.os.set_modified_time(path, mtime)
 
+    def zip_file(self, output_file, *input_files):
+        """
+        将多个文件压缩成zip文件
+        :param output_file: zip 文件名
+        :param input_files: 输入文件列表
+        :return:
+        """
+
+        with open(output_file, 'w') as zf:
+            for f in input_files:
+                if not os.path.isfile(f):
+                    log.error("Do not support DIR now. 不支持目录:{}".format(f))
+                    raise RuntimeError("现在还不支持目录:{}".format(f))
+                zf.write(f)
 
 

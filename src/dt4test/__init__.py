@@ -15,9 +15,14 @@ from .lib.operating_system import OPSystem
 from .lib.expectation import Expectation
 
 from .resource.env import Env
+from .resource.poster import Poster
 from .resource.zookeeper import ZooKeeper
 from .resource.monitor import Monitor
 from .resource.perform import Perform
+
+from .resource.time_server import TimeServerData
+from .resource.time_server_checkrule import CheckRule
+from .resource.time_server_serviceproxy import ServiceProxy
 
 from .resource.resource import Resource
 
@@ -25,6 +30,7 @@ log = Logger().get_logger()
 
 network = Network()
 env = Env()
+poster = Poster()
 base = Base()
 jsonp = JsonP()
 config_ini = ConfigIni()
@@ -35,4 +41,9 @@ expect = Expectation()
 monitor = Monitor()
 perform = Perform()
 resource = Resource()
+
+tsd = TimeServerData()
+tcr = CheckRule()
+tsv = ServiceProxy()
+
 

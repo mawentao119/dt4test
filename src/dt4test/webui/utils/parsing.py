@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-__author__ = "苦叶子"
-__modifier__ = "charis"
+__author__ = "mawentao119@gmail.com"
+
 """
 解析robot.libdoc生成的xml，生成高亮及自动完成。
 增加 调用生成 用户resource关键字的能力

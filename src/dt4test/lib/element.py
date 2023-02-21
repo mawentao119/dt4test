@@ -156,7 +156,7 @@ class Element(Helper):
         """
         return self.string.encode_string_to_bytes(string, encoding, errors)
 
-    def generate_random_string(self, length=8, chars='[LETTERS][NUMBERS]'):
+    def generate_random_string(self, length=8, chars='[LETTERS][NUMBERS]', prefix=''):
         """
         生成指定长度的随机串，使用特定chars
 
@@ -174,6 +174,7 @@ class Element(Helper):
         | ``[UPPER]``   | Uppercase ASCII characters from ``A`` to ``Z``. |
         | ``[LETTERS]`` | Lowercase and uppercase ASCII characters.       |
         | ``[NUMBERS]`` | Numbers from 0 to 9.                            |
+        | ``prefix``    | String's prefix |
 
         | **Examples** :
         | generate_random_string()
@@ -184,7 +185,12 @@ class Element(Helper):
 
         Giving ``length`` as a range of values is new in Robot Framework 5.0.
         """
-        return self.string.generate_random_string(length, chars)
+        new_length = length - len(prefix)
+        if new_length > 0:
+            return prefix + self.string.generate_random_string(new_length, chars)
+        else:
+            log.warn("{}- prefix {} < 0, omit prefix".format(prefix))
+            return self.string.generate_random_string(length, chars)
 
     def get_lines_containing_string(self, string, pattern, case_insensitive=False):
         """
